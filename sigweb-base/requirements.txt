@@ -1,0 +1,6 @@
+flask-login
+flask-sqlalchemy
+pafy
+requests
+Flask-WTF
+Flask-PyMongo
