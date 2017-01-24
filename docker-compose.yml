@@ -1,22 +1,25 @@
 sigweb:
+   #build: ./sigweb-base
    volumes:
     - $PWD/sigweb/webdev/home:/home/webdev/
    expose:
     - "22"
-   image: sigweb-docker
+   image: jasonodoom/sigweb-docker
    container_name: "sigweb-base"
 apache:
+   #build: ./sigweb-apache
    volumes:
     - $PWD/sigweb/webdev/httpd/logs:/var/log/apache2
     - $PWD/sigweb/webdev/httpd/html:/var/www/html
    expose:
     - "80"
-   image: sigweb-apache
+   image: jasonodoom/sigweb-apache
    container_name: "sigweb-httpd"
 mysql:
+   #build: ./sigweb-mysql
    volumes:
     - $PWD/sigweb/mysql/data:/var/lib/mysql
    expose:
     - "3306"
-   image: sigweb-mysql
+   image: jasonodoom/sigweb-mysql
    container_name: "sigweb-db"
