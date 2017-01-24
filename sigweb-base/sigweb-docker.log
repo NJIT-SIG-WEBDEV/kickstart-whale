@@ -1,11 +1,11 @@
-Sending build context to Docker daemon 4.608 kB
-Step 1/26 : FROM ubuntu:14.04
+Sending build context to Docker daemon 11.78 kB
+Step 1/30 : FROM ubuntu:14.04
  ---> b969ab9f929b
-Step 2/26 : MAINTAINER Jason Odoom <jo75@njit.edu>
+Step 2/30 : MAINTAINER Jason Odoom <jo75@njit.edu>
  ---> Using cache
  ---> 3590d074cf54
-Step 3/26 : RUN apt-get -q update     && apt-get -qy --force-yes dist-upgrade     && apt-get install -qy python-pip python-flask python-dev apt-utils      ruby git curl default-jre default-jdk openssh-server build-essential
- ---> Running in 42be18db9be1
+Step 3/30 : RUN apt-get -q update     && apt-get -qy --force-yes dist-upgrade     && apt-get install -qy python-pip python-flask python-dev apt-utils      ruby git curl default-jre default-jdk openssh-server build-essential     vim python-virtualenv lynx mc
+ ---> Running in 04b208c85647
 Ign http://archive.ubuntu.com trusty InRelease
 Get:1 http://archive.ubuntu.com trusty-updates InRelease [65.9 kB]
 Get:2 http://archive.ubuntu.com trusty-security InRelease [65.9 kB]
@@ -13,11 +13,11 @@ Get:3 http://archive.ubuntu.com trusty Release.gpg [933 B]
 Get:4 http://archive.ubuntu.com trusty-updates/main Sources [481 kB]
 Get:5 http://archive.ubuntu.com trusty-updates/restricted Sources [5957 B]
 Get:6 http://archive.ubuntu.com trusty-updates/universe Sources [216 kB]
-Get:7 http://archive.ubuntu.com trusty-updates/main amd64 Packages [1172 kB]
+Get:7 http://archive.ubuntu.com trusty-updates/main amd64 Packages [1173 kB]
 Get:8 http://archive.ubuntu.com trusty-updates/restricted amd64 Packages [20.4 kB]
-Get:9 http://archive.ubuntu.com trusty-updates/universe amd64 Packages [508 kB]
+Get:9 http://archive.ubuntu.com trusty-updates/universe amd64 Packages [509 kB]
 Get:10 http://archive.ubuntu.com trusty Release [58.5 kB]
-Get:11 http://archive.ubuntu.com trusty-security/main Sources [157 kB]
+Get:11 http://archive.ubuntu.com trusty-security/main Sources [158 kB]
 Get:12 http://archive.ubuntu.com trusty-security/restricted Sources [4667 B]
 Get:13 http://archive.ubuntu.com trusty-security/universe Sources [56.8 kB]
 Get:14 http://archive.ubuntu.com trusty-security/main amd64 Packages [711 kB]
@@ -29,7 +29,7 @@ Get:19 http://archive.ubuntu.com trusty/universe Sources [7926 kB]
 Get:20 http://archive.ubuntu.com trusty/main amd64 Packages [1743 kB]
 Get:21 http://archive.ubuntu.com trusty/restricted amd64 Packages [16.0 kB]
 Get:22 http://archive.ubuntu.com trusty/universe amd64 Packages [7589 kB]
-Fetched 22.3 MB in 3min 12s (116 kB/s)
+Fetched 22.4 MB in 3min 20s (111 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -62,7 +62,7 @@ The following extra packages will be installed:
   libgdk-pixbuf2.0-common libgif4 libgl1-mesa-dri libgl1-mesa-glx
   libglapi-mesa libglib2.0-0 libglib2.0-data libgmp10 libgnome2-0
   libgnome2-bin libgnome2-common libgnomevfs2-0 libgnomevfs2-common libgomp1
-  libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+  libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgpm2 libgraphite2-3
   libgssapi-krb5-2 libgssapi3-heimdal libgtk-3-0 libgtk-3-bin libgtk-3-common
   libgtk2.0-0 libgtk2.0-bin libgtk2.0-common libgudev-1.0-0 libgusb2
   libharfbuzz0b libhcrypto4-heimdal libheimbase1-heimdal libheimntlm0-heimdal
@@ -78,7 +78,7 @@ The following extra packages will be installed:
   libpython2.7-dev libpython2.7-minimal libpython2.7-stdlib libquadmath0
   libroken18-heimdal librtmp0 libruby1.9.1 libsane libsane-common libsasl2-2
   libsasl2-modules libsasl2-modules-db libsctp1 libsecret-1-0 libsecret-common
-  libsm-dev libsm6 libsndfile1 libstdc++-4.8-dev libsystemd-daemon0
+  libsm-dev libsm6 libsndfile1 libssh2-1 libstdc++-4.8-dev libsystemd-daemon0
   libsystemd-journal0 libsystemd-login0 libtdb1 libthai-data libthai0 libtiff5
   libtimedate-perl libtsan0 libtxc-dxtn-s2tc0 libudisks2-0 libusb-1.0-0
   libv4l-0 libv4lconvert0 libvorbis0a libvorbisenc2 libvorbisfile3 libvpx1
@@ -89,21 +89,22 @@ The following extra packages will be installed:
   libxcursor1 libxdamage1 libxdmcp-dev libxdmcp6 libxext6 libxfixes3 libxft2
   libxi6 libxinerama1 libxkbcommon0 libxml2 libxmu6 libxmuu1 libxpm4
   libxrandr2 libxrender1 libxshmfence1 libxt-dev libxt6 libxtst6 libxv1
-  libxxf86dga1 libxxf86vm1 libyaml-0-2 linux-libc-dev lksctp-tools make
-  manpages manpages-dev ncurses-term ntfs-3g openjdk-7-jdk openjdk-7-jre
-  openjdk-7-jre-headless openssh-client openssh-sftp-server openssl parted
-  patch policykit-1 policykit-1-gnome psmisc python python-blinker
-  python-chardet python-chardet-whl python-colorama python-colorama-whl
-  python-distlib python-distlib-whl python-html5lib python-html5lib-whl
-  python-itsdangerous python-jinja2 python-markupsafe python-minimal
-  python-openssl python-pip-whl python-pkg-resources python-pyinotify
-  python-requests python-requests-whl python-setuptools python-setuptools-whl
-  python-six python-six-whl python-urllib3 python-urllib3-whl python-werkzeug
-  python-wheel python2.7 python2.7-dev python2.7-minimal python3-pkg-resources
-  rsync ruby1.9.1 sgml-base shared-mime-info sound-theme-freedesktop
-  ssh-import-id systemd systemd-services tcpd tzdata-java udisks2 wget
-  x11-common x11-utils x11proto-core-dev x11proto-input-dev x11proto-kb-dev
-  xauth xml-core xorg-sgml-doctools xtrans-dev xz-utils
+  libxxf86dga1 libxxf86vm1 libyaml-0-2 linux-libc-dev lksctp-tools lynx-cur
+  make manpages manpages-dev mc-data ncurses-term ntfs-3g openjdk-7-jdk
+  openjdk-7-jre openjdk-7-jre-headless openssh-client openssh-sftp-server
+  openssl parted patch policykit-1 policykit-1-gnome psmisc python
+  python-blinker python-chardet python-chardet-whl python-colorama
+  python-colorama-whl python-distlib python-distlib-whl python-html5lib
+  python-html5lib-whl python-itsdangerous python-jinja2 python-markupsafe
+  python-minimal python-openssl python-pip-whl python-pkg-resources
+  python-pyinotify python-requests python-requests-whl python-setuptools
+  python-setuptools-whl python-six python-six-whl python-urllib3
+  python-urllib3-whl python-werkzeug python-wheel python2.7 python2.7-dev
+  python2.7-minimal python3-pkg-resources rsync ruby1.9.1 sgml-base
+  shared-mime-info sound-theme-freedesktop ssh-import-id systemd
+  systemd-services tcpd tzdata-java udisks2 unzip vim-runtime wget x11-common
+  x11-utils x11proto-core-dev x11proto-input-dev x11proto-kb-dev xauth
+  xml-core xorg-sgml-doctools xtrans-dev xz-utils
 Suggested packages:
   binutils-doc cpp-doc gcc-4.8-locales debian-keyring g++-multilib
   g++-4.8-multilib gcc-4.8-doc libstdc++6-4.8-dbg gcc-multilib autoconf
@@ -115,14 +116,16 @@ Suggested packages:
   equivs libasound2-plugins alsa-utils libbonobo2-bin glibc-doc
   libcanberra-gtk0 libcanberra-pulse cups-common libgd-tools libglide3
   desktop-base libgnomevfs2-bin libgnomevfs2-extra gamin fam gnome-mime-data
-  gphoto2 gtkam krb5-doc krb5-user librsvg2-common libice-doc
+  gphoto2 gtkam gpm krb5-doc krb5-user librsvg2-common libice-doc
   libjasper-runtime javascript-common liblcms2-utils ttf-baekmuk
   ttf-arphic-gbsn00lp ttf-arphic-bsmi00lp ttf-arphic-gkai00mp
   ttf-arphic-bkai00mp libparted0-dev libparted0-i18n pciutils pcscd pulseaudio
   avahi-daemon hplip hpoj libsane-extras sane-utils libsasl2-modules-otp
   libsasl2-modules-ldap libsasl2-modules-sql libsasl2-modules-gssapi-mit
   libsasl2-modules-gssapi-heimdal libsm-doc libstdc++-4.8-doc libxcb-doc
-  libxt-doc make-doc man-browser openjdk-7-demo openjdk-7-source visualvm
+  libxt-doc make-doc man-browser arj catdvi texlive-binaries dbview
+  djvulibre-bin genisoimage gv imagemagick odt2txt poppler-utils python-boto
+  python-tz xpdf pdf-viewer zip openjdk-7-demo openjdk-7-source visualvm
   icedtea-7-plugin icedtea-7-jre-jamvm libnss-mdns sun-java6-fonts
   fonts-ipafont-gothic fonts-ipafont-mincho ttf-wqy-microhei ttf-wqy-zenhei
   ttf-indic-fonts-core ttf-telugu-fonts ttf-oriya-fonts ttf-kannada-fonts
@@ -135,7 +138,7 @@ Suggested packages:
   python2.7-doc binfmt-support python3-setuptools ri ruby-dev
   ruby1.9.1-examples ri1.9.1 graphviz ruby1.9.1-dev ruby-switch sgml-base-doc
   systemd-ui cgmanager xfsprogs reiserfsprogs exfat-utils btrfs-tools mdadm
-  cryptsetup-bin mesa-utils debhelper
+  cryptsetup-bin ctags vim-doc vim-scripts mesa-utils debhelper
 Recommended packages:
   ssh-client python-dev-all
 The following NEW packages will be installed:
@@ -162,7 +165,7 @@ The following NEW packages will be installed:
   libgdk-pixbuf2.0-common libgif4 libgl1-mesa-dri libgl1-mesa-glx
   libglapi-mesa libglib2.0-0 libglib2.0-data libgmp10 libgnome2-0
   libgnome2-bin libgnome2-common libgnomevfs2-0 libgnomevfs2-common libgomp1
-  libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+  libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgpm2 libgraphite2-3
   libgssapi-krb5-2 libgssapi3-heimdal libgtk-3-0 libgtk-3-bin libgtk-3-common
   libgtk2.0-0 libgtk2.0-bin libgtk2.0-common libgudev-1.0-0 libgusb2
   libharfbuzz0b libhcrypto4-heimdal libheimbase1-heimdal libheimntlm0-heimdal
@@ -178,7 +181,7 @@ The following NEW packages will be installed:
   libpython2.7-dev libpython2.7-minimal libpython2.7-stdlib libquadmath0
   libroken18-heimdal librtmp0 libruby1.9.1 libsane libsane-common libsasl2-2
   libsasl2-modules libsasl2-modules-db libsctp1 libsecret-1-0 libsecret-common
-  libsm-dev libsm6 libsndfile1 libstdc++-4.8-dev libsystemd-daemon0
+  libsm-dev libsm6 libsndfile1 libssh2-1 libstdc++-4.8-dev libsystemd-daemon0
   libsystemd-journal0 libsystemd-login0 libtdb1 libthai-data libthai0 libtiff5
   libtimedate-perl libtsan0 libtxc-dxtn-s2tc0 libudisks2-0 libusb-1.0-0
   libv4l-0 libv4lconvert0 libvorbis0a libvorbisenc2 libvorbisfile3 libvpx1
@@ -189,32 +192,33 @@ The following NEW packages will be installed:
   libxcursor1 libxdamage1 libxdmcp-dev libxdmcp6 libxext6 libxfixes3 libxft2
   libxi6 libxinerama1 libxkbcommon0 libxml2 libxmu6 libxmuu1 libxpm4
   libxrandr2 libxrender1 libxshmfence1 libxt-dev libxt6 libxtst6 libxv1
-  libxxf86dga1 libxxf86vm1 libyaml-0-2 linux-libc-dev lksctp-tools make
-  manpages manpages-dev ncurses-term ntfs-3g openjdk-7-jdk openjdk-7-jre
-  openjdk-7-jre-headless openssh-client openssh-server openssh-sftp-server
-  openssl parted patch policykit-1 policykit-1-gnome psmisc python
-  python-blinker python-chardet python-chardet-whl python-colorama
-  python-colorama-whl python-dev python-distlib python-distlib-whl
-  python-flask python-html5lib python-html5lib-whl python-itsdangerous
-  python-jinja2 python-markupsafe python-minimal python-openssl python-pip
-  python-pip-whl python-pkg-resources python-pyinotify python-requests
-  python-requests-whl python-setuptools python-setuptools-whl python-six
-  python-six-whl python-urllib3 python-urllib3-whl python-werkzeug
-  python-wheel python2.7 python2.7-dev python2.7-minimal python3-pkg-resources
-  rsync ruby ruby1.9.1 sgml-base shared-mime-info sound-theme-freedesktop
-  ssh-import-id systemd systemd-services tcpd tzdata-java udisks2 wget
+  libxxf86dga1 libxxf86vm1 libyaml-0-2 linux-libc-dev lksctp-tools lynx
+  lynx-cur make manpages manpages-dev mc mc-data ncurses-term ntfs-3g
+  openjdk-7-jdk openjdk-7-jre openjdk-7-jre-headless openssh-client
+  openssh-server openssh-sftp-server openssl parted patch policykit-1
+  policykit-1-gnome psmisc python python-blinker python-chardet
+  python-chardet-whl python-colorama python-colorama-whl python-dev
+  python-distlib python-distlib-whl python-flask python-html5lib
+  python-html5lib-whl python-itsdangerous python-jinja2 python-markupsafe
+  python-minimal python-openssl python-pip python-pip-whl python-pkg-resources
+  python-pyinotify python-requests python-requests-whl python-setuptools
+  python-setuptools-whl python-six python-six-whl python-urllib3
+  python-urllib3-whl python-virtualenv python-werkzeug python-wheel python2.7
+  python2.7-dev python2.7-minimal python3-pkg-resources rsync ruby ruby1.9.1
+  sgml-base shared-mime-info sound-theme-freedesktop ssh-import-id systemd
+  systemd-services tcpd tzdata-java udisks2 unzip vim vim-runtime wget
   x11-common x11-utils x11proto-core-dev x11proto-input-dev x11proto-kb-dev
   xauth xml-core xorg-sgml-doctools xtrans-dev xz-utils
-0 upgraded, 346 newly installed, 0 to remove and 0 not upgraded.
-Need to get 187 MB of archives.
-After this operation, 543 MB of additional disk space will be used.
+0 upgraded, 356 newly installed, 0 to remove and 0 not upgraded.
+Need to get 197 MB of archives.
+After this operation, 583 MB of additional disk space will be used.
 Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libroken18-heimdal amd64 1.6~git20131207+dfsg-1ubuntu1.1 [40.0 kB]
 Get:2 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libasn1-8-heimdal amd64 1.6~git20131207+dfsg-1ubuntu1.1 [161 kB]
-Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libkrb5support0 amd64 1.12+dfsg-2ubuntu5.2 [30.7 kB]
-Get:4 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libk5crypto3 amd64 1.12+dfsg-2ubuntu5.2 [79.4 kB]
+Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libkrb5support0 amd64 1.12+dfsg-2ubuntu5.3 [30.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libk5crypto3 amd64 1.12+dfsg-2ubuntu5.3 [79.6 kB]
 Get:5 http://archive.ubuntu.com/ubuntu/ trusty/main libkeyutils1 amd64 1.5.6-1 [7318 B]
-Get:6 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libkrb5-3 amd64 1.12+dfsg-2ubuntu5.2 [262 kB]
-Get:7 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgssapi-krb5-2 amd64 1.12+dfsg-2ubuntu5.2 [114 kB]
+Get:6 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libkrb5-3 amd64 1.12+dfsg-2ubuntu5.3 [262 kB]
+Get:7 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgssapi-krb5-2 amd64 1.12+dfsg-2ubuntu5.3 [114 kB]
 Get:8 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libidn11 amd64 1.28-1ubuntu2.1 [94.4 kB]
 Get:9 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libhcrypto4-heimdal amd64 1.6~git20131207+dfsg-1ubuntu1.1 [83.9 kB]
 Get:10 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libheimbase1-heimdal amd64 1.6~git20131207+dfsg-1ubuntu1.1 [28.9 kB]
@@ -314,7 +318,7 @@ Get:103 http://archive.ubuntu.com/ubuntu/ trusty/main ca-certificates-java all 2
 Get:104 http://archive.ubuntu.com/ubuntu/ trusty-updates/main tzdata-java all 2016j-0ubuntu0.14.04 [68.8 kB]
 Get:105 http://archive.ubuntu.com/ubuntu/ trusty/main java-common all 0.51 [130 kB]
 Get:106 http://archive.ubuntu.com/ubuntu/ trusty-updates/main liblcms2-2 amd64 2.5-0ubuntu4.1 [131 kB]
-Get:107 http://archive.ubuntu.com/ubuntu/ trusty/main libpcsclite1 amd64 1.8.10-1ubuntu1 [20.9 kB]
+Get:107 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libpcsclite1 amd64 1.8.10-1ubuntu1.1 [21.1 kB]
 Get:108 http://archive.ubuntu.com/ubuntu/ trusty/main libogg0 amd64 1.3.1-1ubuntu1 [17.0 kB]
 Get:109 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libflac8 amd64 1.3.0-2ubuntu0.14.04.1 [80.2 kB]
 Get:110 http://archive.ubuntu.com/ubuntu/ trusty/main libvorbis0a amd64 1.3.2-1.3ubuntu1 [87.2 kB]
@@ -399,161 +403,171 @@ Get:188 http://archive.ubuntu.com/ubuntu/ trusty/main libgnome2-0 amd64 2.32.1-4
 Get:189 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgomp1 amd64 4.8.4-2ubuntu1~14.04.3 [23.1 kB]
 Get:190 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgphoto2-port10 amd64 2.5.3.1-1ubuntu2.2 [40.8 kB]
 Get:191 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgphoto2-6 amd64 2.5.3.1-1ubuntu2.2 [737 kB]
-Get:192 http://archive.ubuntu.com/ubuntu/ trusty/main dconf-service amd64 0.20.0-1 [26.9 kB]
-Get:193 http://archive.ubuntu.com/ubuntu/ trusty/main dconf-gsettings-backend amd64 0.20.0-1 [19.3 kB]
-Get:194 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgtk-3-common all 3.10.8-0ubuntu1.6 [167 kB]
-Get:195 http://archive.ubuntu.com/ubuntu/ trusty/main libwayland-client0 amd64 1.4.0-1ubuntu1 [22.1 kB]
-Get:196 http://archive.ubuntu.com/ubuntu/ trusty/main libwayland-cursor0 amd64 1.4.0-1ubuntu1 [9918 B]
-Get:197 http://archive.ubuntu.com/ubuntu/ trusty/main libxkbcommon0 amd64 0.4.1-0ubuntu1 [87.9 kB]
-Get:198 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgtk-3-0 amd64 3.10.8-0ubuntu1.6 [1960 kB]
-Get:199 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgudev-1.0-0 amd64 1:204-5ubuntu20.20 [14.1 kB]
-Get:200 http://archive.ubuntu.com/ubuntu/ trusty/main libice6 amd64 2:1.0.8-2 [47.0 kB]
-Get:201 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libicu52 amd64 52.1-3ubuntu0.4 [6752 kB]
-Get:202 http://archive.ubuntu.com/ubuntu/ trusty/main libieee1284-3 amd64 0.2.11-12 [23.8 kB]
-Get:203 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libitm1 amd64 4.8.4-2ubuntu1~14.04.3 [28.5 kB]
-Get:204 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libpolkit-agent-1-0 amd64 0.105-4ubuntu3.14.04.1 [14.8 kB]
-Get:205 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libpolkit-backend-1-0 amd64 0.105-4ubuntu3.14.04.1 [34.6 kB]
-Get:206 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libpython2.7 amd64 2.7.6-8ubuntu0.3 [1039 kB]
-Get:207 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libc-dev-bin amd64 2.19-0ubuntu6.9 [69.0 kB]
-Get:208 http://archive.ubuntu.com/ubuntu/ trusty-updates/main linux-libc-dev amd64 3.13.0-107.154 [772 kB]
-Get:209 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libc6-dev amd64 2.19-0ubuntu6.9 [1910 kB]
-Get:210 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libexpat1-dev amd64 2.1.0-4ubuntu1.3 [115 kB]
-Get:211 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libpython2.7-dev amd64 2.7.6-8ubuntu0.3 [22.0 MB]
-Get:212 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libquadmath0 amd64 4.8.4-2ubuntu1~14.04.3 [126 kB]
-Get:213 http://archive.ubuntu.com/ubuntu/ trusty/main acl amd64 2.2.52-1 [43.8 kB]
-Get:214 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libsane-common amd64 1.0.23-3ubuntu3.1 [451 kB]
-Get:215 http://archive.ubuntu.com/ubuntu/ trusty/main libv4lconvert0 amd64 1.0.1-1 [74.8 kB]
-Get:216 http://archive.ubuntu.com/ubuntu/ trusty/main libv4l-0 amd64 1.0.1-1 [38.8 kB]
-Get:217 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libsane amd64 1.0.23-3ubuntu3.1 [1929 kB]
-Get:218 http://archive.ubuntu.com/ubuntu/ trusty/main libsecret-common all 0.16-0ubuntu1 [4166 B]
-Get:219 http://archive.ubuntu.com/ubuntu/ trusty/main libsecret-1-0 amd64 0.16-0ubuntu1 [90.7 kB]
-Get:220 http://archive.ubuntu.com/ubuntu/ trusty/main libsm6 amd64 2:1.2.1-2 [18.1 kB]
-Get:221 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libtsan0 amd64 4.8.4-2ubuntu1~14.04.3 [94.9 kB]
-Get:222 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libudisks2-0 amd64 2.1.3-1ubuntu0.1 [90.5 kB]
-Get:223 http://archive.ubuntu.com/ubuntu/ trusty/main libxt6 amd64 1:1.1.4-1 [185 kB]
-Get:224 http://archive.ubuntu.com/ubuntu/ trusty/main libxmu6 amd64 2:1.1.1-1 [53.8 kB]
-Get:225 http://archive.ubuntu.com/ubuntu/ trusty/main libxaw7 amd64 2:1.0.12-1 [168 kB]
-Get:226 http://archive.ubuntu.com/ubuntu/ trusty/main libxcb-shape0 amd64 1.10-2ubuntu1 [5654 B]
-Get:227 http://archive.ubuntu.com/ubuntu/ trusty/main libxft2 amd64 2.3.1-2 [36.2 kB]
-Get:228 http://archive.ubuntu.com/ubuntu/ trusty/main libxv1 amd64 2:1.0.10-1 [10.3 kB]
-Get:229 http://archive.ubuntu.com/ubuntu/ trusty/main libxxf86dga1 amd64 2:1.1.4-1 [13.7 kB]
-Get:230 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libyaml-0-2 amd64 0.1.4-3ubuntu3.1 [48.1 kB]
-Get:231 http://archive.ubuntu.com/ubuntu/ trusty/main libgusb2 amd64 0.1.6-5 [15.4 kB]
-Get:232 http://archive.ubuntu.com/ubuntu/ trusty/main libcolorhug1 amd64 1.0.6-1 [21.7 kB]
-Get:233 http://archive.ubuntu.com/ubuntu/ trusty/main libtxc-dxtn-s2tc0 amd64 0~git20131104-1.1 [51.8 kB]
-Get:234 http://archive.ubuntu.com/ubuntu/ trusty-updates/main dosfstools amd64 3.0.26-1ubuntu0.1 [60.1 kB]
-Get:235 http://archive.ubuntu.com/ubuntu/ trusty/main groff-base amd64 1.22.2-5 [1053 kB]
-Get:236 http://archive.ubuntu.com/ubuntu/ trusty-updates/main krb5-locales all 1.12+dfsg-2ubuntu5.2 [13.6 kB]
-Get:237 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libglib2.0-data all 2.40.2-0ubuntu1 [116 kB]
-Get:238 http://archive.ubuntu.com/ubuntu/ trusty/main libsasl2-modules amd64 2.1.25.dfsg1-17build1 [64.3 kB]
-Get:239 http://archive.ubuntu.com/ubuntu/ trusty/main manpages all 3.54-1ubuntu1 [627 kB]
-Get:240 http://archive.ubuntu.com/ubuntu/ trusty-updates/main openssh-client amd64 1:6.6p1-2ubuntu2.8 [564 kB]
-Get:241 http://archive.ubuntu.com/ubuntu/ trusty-updates/main parted amd64 2.3-19ubuntu1.14.04.1 [44.2 kB]
-Get:242 http://archive.ubuntu.com/ubuntu/ trusty-updates/main rsync amd64 3.1.0-2ubuntu0.2 [284 kB]
-Get:243 http://archive.ubuntu.com/ubuntu/ trusty-updates/main wget amd64 1.15-1ubuntu1.14.04.2 [271 kB]
-Get:244 http://archive.ubuntu.com/ubuntu/ trusty/main xauth amd64 1:1.0.7-1ubuntu1 [25.8 kB]
-Get:245 http://archive.ubuntu.com/ubuntu/ trusty/main xml-core all 0.13+nmu2 [23.3 kB]
-Get:246 http://archive.ubuntu.com/ubuntu/ trusty/main at-spi2-core amd64 2.10.2.is.2.10.1-0ubuntu1 [43.1 kB]
-Get:247 http://archive.ubuntu.com/ubuntu/ trusty-updates/main binutils amd64 2.24-5ubuntu14.1 [2081 kB]
-Get:248 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgcc-4.8-dev amd64 4.8.4-2ubuntu1~14.04.3 [1688 kB]
-Get:249 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gcc-4.8 amd64 4.8.4-2ubuntu1~14.04.3 [5047 kB]
-Get:250 http://archive.ubuntu.com/ubuntu/ trusty/main gcc amd64 4:4.8.2-1ubuntu6 [5098 B]
-Get:251 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libstdc++-4.8-dev amd64 4.8.4-2ubuntu1~14.04.3 [1053 kB]
-Get:252 http://archive.ubuntu.com/ubuntu/ trusty-updates/main g++-4.8 amd64 4.8.4-2ubuntu1~14.04.3 [18.1 MB]
-Get:253 http://archive.ubuntu.com/ubuntu/ trusty/main g++ amd64 4:4.8.2-1ubuntu6 [1490 B]
-Get:254 http://archive.ubuntu.com/ubuntu/ trusty/main make amd64 3.81-8.2ubuntu3 [119 kB]
-Get:255 http://archive.ubuntu.com/ubuntu/ trusty/main libtimedate-perl all 2.3000-1 [37.2 kB]
-Get:256 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libdpkg-perl all 1.17.5ubuntu5.7 [179 kB]
-Get:257 http://archive.ubuntu.com/ubuntu/ trusty/main xz-utils amd64 5.1.1alpha+20120614-2ubuntu2 [78.8 kB]
-Get:258 http://archive.ubuntu.com/ubuntu/ trusty-updates/main patch amd64 2.7.1-4ubuntu2.3 [86.4 kB]
-Get:259 http://archive.ubuntu.com/ubuntu/ trusty-updates/main dpkg-dev all 1.17.5ubuntu5.7 [726 kB]
-Get:260 http://archive.ubuntu.com/ubuntu/ trusty/main build-essential amd64 11.6ubuntu6 [4838 B]
-Get:261 http://archive.ubuntu.com/ubuntu/ trusty-updates/main policykit-1 amd64 0.105-4ubuntu3.14.04.1 [51.3 kB]
-Get:262 http://archive.ubuntu.com/ubuntu/ trusty/main colord amd64 1.0.6-1 [213 kB]
-Get:263 http://archive.ubuntu.com/ubuntu/ trusty-updates/main curl amd64 7.35.0-1ubuntu2.10 [123 kB]
-Get:264 http://archive.ubuntu.com/ubuntu/ trusty-updates/main openjdk-7-jdk amd64 7u121-2.6.8-1ubuntu0.14.04.1 [16.1 MB]
-Get:265 http://archive.ubuntu.com/ubuntu/ trusty/main default-jdk amd64 2:1.7-51 [934 B]
-Get:266 http://archive.ubuntu.com/ubuntu/ trusty/main desktop-file-utils amd64 0.22-1ubuntu1 [43.2 kB]
-Get:267 http://archive.ubuntu.com/ubuntu/ trusty/main libfakeroot amd64 1.20-3ubuntu2 [25.4 kB]
-Get:268 http://archive.ubuntu.com/ubuntu/ trusty/main fakeroot amd64 1.20-3ubuntu2 [55.0 kB]
-Get:269 http://archive.ubuntu.com/ubuntu/ trusty/main fonts-dejavu-extra all 2.34-1ubuntu1 [1736 kB]
-Get:270 http://archive.ubuntu.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
-Get:271 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git-man all 1:1.9.1-1ubuntu0.3 [699 kB]
-Get:272 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git amd64 1:1.9.1-1ubuntu0.3 [2586 kB]
-Get:273 http://archive.ubuntu.com/ubuntu/ trusty/main x11-utils amd64 7.7+1 [230 kB]
-Get:274 http://archive.ubuntu.com/ubuntu/ trusty-updates/main udisks2 amd64 2.1.3-1ubuntu0.1 [170 kB]
-Get:275 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gvfs-common all 1.20.3-0ubuntu1.2 [42.3 kB]
-Get:276 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gvfs-libs amd64 1.20.3-0ubuntu1.2 [105 kB]
-Get:277 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gvfs-daemons amd64 1.20.3-0ubuntu1.2 [108 kB]
-Get:278 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gvfs amd64 1.20.3-0ubuntu1.2 [89.5 kB]
-Get:279 http://archive.ubuntu.com/ubuntu/ trusty/main hicolor-icon-theme all 0.13-1 [7140 B]
-Get:280 http://archive.ubuntu.com/ubuntu/ trusty/main libalgorithm-diff-perl all 1.19.02-3 [50.0 kB]
-Get:281 http://archive.ubuntu.com/ubuntu/ trusty/main libalgorithm-diff-xs-perl amd64 0.04-2build4 [12.6 kB]
-Get:282 http://archive.ubuntu.com/ubuntu/ trusty/main libalgorithm-merge-perl all 0.08-2 [12.7 kB]
-Get:283 http://archive.ubuntu.com/ubuntu/ trusty/main libfile-fcntllock-perl amd64 0.14-2build1 [15.9 kB]
-Get:284 http://archive.ubuntu.com/ubuntu/ trusty/main libgconf2-4 amd64 3.2.6-0ubuntu2 [2042 B]
-Get:285 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgphoto2-l10n all 2.5.3.1-1ubuntu2.2 [7602 B]
-Get:286 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgtk-3-bin amd64 3.10.8-0ubuntu1.6 [18.2 kB]
-Get:287 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgtk2.0-bin amd64 2.24.23-0ubuntu1.4 [9774 B]
-Get:288 http://archive.ubuntu.com/ubuntu/ trusty/main xorg-sgml-doctools all 1:1.11-1 [12.9 kB]
-Get:289 http://archive.ubuntu.com/ubuntu/ trusty-updates/main x11proto-core-dev all 7.0.26-1~ubuntu2 [700 kB]
-Get:290 http://archive.ubuntu.com/ubuntu/ trusty/main libice-dev amd64 2:1.0.8-2 [57.6 kB]
-Get:291 http://archive.ubuntu.com/ubuntu/ trusty/main libjs-jquery all 1.7.2+dfsg-2ubuntu1 [78.8 kB]
-Get:292 http://archive.ubuntu.com/ubuntu/ trusty/main libpthread-stubs0-dev amd64 0.3-4 [4068 B]
-Get:293 http://archive.ubuntu.com/ubuntu/ trusty/main libpython-dev amd64 2.7.5-5ubuntu3 [7078 B]
-Get:294 http://archive.ubuntu.com/ubuntu/ trusty/main ruby all 1:1.9.3.4 [5334 B]
-Get:295 http://archive.ubuntu.com/ubuntu/ trusty-updates/main ruby1.9.1 amd64 1.9.3.484-2ubuntu1.2 [35.6 kB]
-Get:296 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libruby1.9.1 amd64 1.9.3.484-2ubuntu1.2 [2645 kB]
-Get:297 http://archive.ubuntu.com/ubuntu/ trusty/main libsm-dev amd64 2:1.2.1-2 [19.9 kB]
-Get:298 http://archive.ubuntu.com/ubuntu/ trusty/main libxau-dev amd64 1:1.0.8-1 [11.1 kB]
-Get:299 http://archive.ubuntu.com/ubuntu/ trusty/main libxdmcp-dev amd64 1:1.1.1-1 [26.9 kB]
-Get:300 http://archive.ubuntu.com/ubuntu/ trusty/main x11proto-input-dev all 2.3-1 [139 kB]
-Get:301 http://archive.ubuntu.com/ubuntu/ trusty/main x11proto-kb-dev all 1.0.6-2 [269 kB]
-Get:302 http://archive.ubuntu.com/ubuntu/ trusty-updates/main xtrans-dev all 1.3.5-1~ubuntu14.04.1 [70.3 kB]
-Get:303 http://archive.ubuntu.com/ubuntu/ trusty/main libxcb1-dev amd64 1.10-2ubuntu1 [76.6 kB]
-Get:304 http://archive.ubuntu.com/ubuntu/ trusty/main libx11-dev amd64 2:1.6.2-1ubuntu2 [629 kB]
-Get:305 http://archive.ubuntu.com/ubuntu/ trusty/main libx11-doc all 2:1.6.2-1ubuntu2 [1448 kB]
-Get:306 http://archive.ubuntu.com/ubuntu/ trusty/main libxt-dev amd64 1:1.1.4-1 [455 kB]
-Get:307 http://archive.ubuntu.com/ubuntu/ trusty/main lksctp-tools amd64 1.0.15+dfsg-1 [51.3 kB]
-Get:308 http://archive.ubuntu.com/ubuntu/ trusty/main manpages-dev all 3.54-1ubuntu1 [1820 kB]
-Get:309 http://archive.ubuntu.com/ubuntu/ trusty/main ncurses-term all 5.9+20140118-1ubuntu1 [243 kB]
-Get:310 http://archive.ubuntu.com/ubuntu/ trusty-updates/main openssh-sftp-server amd64 1:6.6p1-2ubuntu2.8 [34.2 kB]
-Get:311 http://archive.ubuntu.com/ubuntu/ trusty-updates/main openssh-server amd64 1:6.6p1-2ubuntu2.8 [322 kB]
-Get:312 http://archive.ubuntu.com/ubuntu/ trusty/main policykit-1-gnome amd64 0.105-1ubuntu4 [27.8 kB]
-Get:313 http://archive.ubuntu.com/ubuntu/ trusty/main python-blinker all 1.3.dfsg1-1ubuntu2 [29.8 kB]
-Get:314 http://archive.ubuntu.com/ubuntu/ trusty/main python-chardet all 2.0.1-2build2 [106 kB]
-Get:315 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python3-pkg-resources all 3.3-1ubuntu2 [31.7 kB]
-Get:316 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-chardet-whl all 2.2.1-2~ubuntu1 [170 kB]
-Get:317 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-colorama all 0.2.5-0.1ubuntu2 [18.4 kB]
-Get:318 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-colorama-whl all 0.2.5-0.1ubuntu2 [18.2 kB]
-Get:319 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python2.7-dev amd64 2.7.6-8ubuntu0.3 [269 kB]
-Get:320 http://archive.ubuntu.com/ubuntu/ trusty/main python-dev amd64 2.7.5-5ubuntu3 [1166 B]
-Get:321 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-distlib all 0.1.8-1ubuntu1 [113 kB]
-Get:322 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-distlib-whl all 0.1.8-1ubuntu1 [140 kB]
-Get:323 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-werkzeug all 0.9.4+dfsg-1.1ubuntu2 [236 kB]
-Get:324 http://archive.ubuntu.com/ubuntu/ trusty/main python-markupsafe amd64 0.18-1build2 [14.3 kB]
-Get:325 http://archive.ubuntu.com/ubuntu/ trusty/main python-jinja2 all 2.7.2-2 [161 kB]
-Get:326 http://archive.ubuntu.com/ubuntu/ trusty/main python-itsdangerous all 0.22+dfsg1-1build1 [11.5 kB]
-Get:327 http://archive.ubuntu.com/ubuntu/ trusty/main python-flask all 0.10.1-2build1 [51.7 kB]
-Get:328 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-six all 1.5.2-1ubuntu1 [8238 B]
-Get:329 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-html5lib all 0.999-3~ubuntu1 [83.5 kB]
-Get:330 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-html5lib-whl all 0.999-3~ubuntu1 [109 kB]
-Get:331 http://archive.ubuntu.com/ubuntu/ trusty/main python-openssl amd64 0.13-2ubuntu6 [81.5 kB]
-Get:332 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-six-whl all 1.5.2-1ubuntu1 [10.5 kB]
-Get:333 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-urllib3-whl all 1.7.1-1ubuntu4 [64.0 kB]
-Get:334 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-requests-whl all 2.2.1-1ubuntu0.3 [227 kB]
-Get:335 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-setuptools-whl all 3.3-1ubuntu2 [244 kB]
-Get:336 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-pip-whl all 1.5.4-1ubuntu4 [111 kB]
-Get:337 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-pkg-resources all 3.3-1ubuntu2 [61.9 kB]
-Get:338 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-urllib3 all 1.7.1-1ubuntu4 [39.5 kB]
-Get:339 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-requests all 2.2.1-1ubuntu0.3 [43.1 kB]
-Get:340 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-setuptools all 3.3-1ubuntu2 [230 kB]
-Get:341 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-pip all 1.5.4-1ubuntu4 [97.3 kB]
-Get:342 http://archive.ubuntu.com/ubuntu/ trusty/main python-pyinotify all 0.9.4-1build1 [24.5 kB]
-Get:343 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-wheel all 0.24.0-1~ubuntu1 [44.7 kB]
-Get:344 http://archive.ubuntu.com/ubuntu/ trusty/main tcpd amd64 7.6.q-25 [23.0 kB]
-Get:345 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gdisk amd64 0.8.8-1ubuntu0.1 [185 kB]
-Get:346 http://archive.ubuntu.com/ubuntu/ trusty/main ssh-import-id all 3.21-0ubuntu1 [9624 B]
+Get:192 http://archive.ubuntu.com/ubuntu/ trusty/main libgpm2 amd64 1.20.4-6.1 [16.5 kB]
+Get:193 http://archive.ubuntu.com/ubuntu/ trusty/main dconf-service amd64 0.20.0-1 [26.9 kB]
+Get:194 http://archive.ubuntu.com/ubuntu/ trusty/main dconf-gsettings-backend amd64 0.20.0-1 [19.3 kB]
+Get:195 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgtk-3-common all 3.10.8-0ubuntu1.6 [167 kB]
+Get:196 http://archive.ubuntu.com/ubuntu/ trusty/main libwayland-client0 amd64 1.4.0-1ubuntu1 [22.1 kB]
+Get:197 http://archive.ubuntu.com/ubuntu/ trusty/main libwayland-cursor0 amd64 1.4.0-1ubuntu1 [9918 B]
+Get:198 http://archive.ubuntu.com/ubuntu/ trusty/main libxkbcommon0 amd64 0.4.1-0ubuntu1 [87.9 kB]
+Get:199 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgtk-3-0 amd64 3.10.8-0ubuntu1.6 [1960 kB]
+Get:200 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgudev-1.0-0 amd64 1:204-5ubuntu20.20 [14.1 kB]
+Get:201 http://archive.ubuntu.com/ubuntu/ trusty/main libice6 amd64 2:1.0.8-2 [47.0 kB]
+Get:202 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libicu52 amd64 52.1-3ubuntu0.4 [6752 kB]
+Get:203 http://archive.ubuntu.com/ubuntu/ trusty/main libieee1284-3 amd64 0.2.11-12 [23.8 kB]
+Get:204 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libitm1 amd64 4.8.4-2ubuntu1~14.04.3 [28.5 kB]
+Get:205 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libpolkit-agent-1-0 amd64 0.105-4ubuntu3.14.04.1 [14.8 kB]
+Get:206 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libpolkit-backend-1-0 amd64 0.105-4ubuntu3.14.04.1 [34.6 kB]
+Get:207 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libpython2.7 amd64 2.7.6-8ubuntu0.3 [1039 kB]
+Get:208 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libc-dev-bin amd64 2.19-0ubuntu6.9 [69.0 kB]
+Get:209 http://archive.ubuntu.com/ubuntu/ trusty-updates/main linux-libc-dev amd64 3.13.0-107.154 [772 kB]
+Get:210 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libc6-dev amd64 2.19-0ubuntu6.9 [1910 kB]
+Get:211 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libexpat1-dev amd64 2.1.0-4ubuntu1.3 [115 kB]
+Get:212 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libpython2.7-dev amd64 2.7.6-8ubuntu0.3 [22.0 MB]
+Get:213 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libquadmath0 amd64 4.8.4-2ubuntu1~14.04.3 [126 kB]
+Get:214 http://archive.ubuntu.com/ubuntu/ trusty/main acl amd64 2.2.52-1 [43.8 kB]
+Get:215 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libsane-common amd64 1.0.23-3ubuntu3.1 [451 kB]
+Get:216 http://archive.ubuntu.com/ubuntu/ trusty/main libv4lconvert0 amd64 1.0.1-1 [74.8 kB]
+Get:217 http://archive.ubuntu.com/ubuntu/ trusty/main libv4l-0 amd64 1.0.1-1 [38.8 kB]
+Get:218 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libsane amd64 1.0.23-3ubuntu3.1 [1929 kB]
+Get:219 http://archive.ubuntu.com/ubuntu/ trusty/main libsecret-common all 0.16-0ubuntu1 [4166 B]
+Get:220 http://archive.ubuntu.com/ubuntu/ trusty/main libsecret-1-0 amd64 0.16-0ubuntu1 [90.7 kB]
+Get:221 http://archive.ubuntu.com/ubuntu/ trusty/main libsm6 amd64 2:1.2.1-2 [18.1 kB]
+Get:222 http://archive.ubuntu.com/ubuntu/ trusty/universe libssh2-1 amd64 1.4.3-2 [66.3 kB]
+Get:223 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libtsan0 amd64 4.8.4-2ubuntu1~14.04.3 [94.9 kB]
+Get:224 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libudisks2-0 amd64 2.1.3-1ubuntu0.1 [90.5 kB]
+Get:225 http://archive.ubuntu.com/ubuntu/ trusty/main libxt6 amd64 1:1.1.4-1 [185 kB]
+Get:226 http://archive.ubuntu.com/ubuntu/ trusty/main libxmu6 amd64 2:1.1.1-1 [53.8 kB]
+Get:227 http://archive.ubuntu.com/ubuntu/ trusty/main libxaw7 amd64 2:1.0.12-1 [168 kB]
+Get:228 http://archive.ubuntu.com/ubuntu/ trusty/main libxcb-shape0 amd64 1.10-2ubuntu1 [5654 B]
+Get:229 http://archive.ubuntu.com/ubuntu/ trusty/main libxft2 amd64 2.3.1-2 [36.2 kB]
+Get:230 http://archive.ubuntu.com/ubuntu/ trusty/main libxv1 amd64 2:1.0.10-1 [10.3 kB]
+Get:231 http://archive.ubuntu.com/ubuntu/ trusty/main libxxf86dga1 amd64 2:1.1.4-1 [13.7 kB]
+Get:232 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libyaml-0-2 amd64 0.1.4-3ubuntu3.1 [48.1 kB]
+Get:233 http://archive.ubuntu.com/ubuntu/ trusty/main libgusb2 amd64 0.1.6-5 [15.4 kB]
+Get:234 http://archive.ubuntu.com/ubuntu/ trusty/main libcolorhug1 amd64 1.0.6-1 [21.7 kB]
+Get:235 http://archive.ubuntu.com/ubuntu/ trusty/main libtxc-dxtn-s2tc0 amd64 0~git20131104-1.1 [51.8 kB]
+Get:236 http://archive.ubuntu.com/ubuntu/ trusty-updates/main dosfstools amd64 3.0.26-1ubuntu0.1 [60.1 kB]
+Get:237 http://archive.ubuntu.com/ubuntu/ trusty/main groff-base amd64 1.22.2-5 [1053 kB]
+Get:238 http://archive.ubuntu.com/ubuntu/ trusty-updates/main krb5-locales all 1.12+dfsg-2ubuntu5.3 [13.5 kB]
+Get:239 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libglib2.0-data all 2.40.2-0ubuntu1 [116 kB]
+Get:240 http://archive.ubuntu.com/ubuntu/ trusty/main libsasl2-modules amd64 2.1.25.dfsg1-17build1 [64.3 kB]
+Get:241 http://archive.ubuntu.com/ubuntu/ trusty/main manpages all 3.54-1ubuntu1 [627 kB]
+Get:242 http://archive.ubuntu.com/ubuntu/ trusty-updates/main openssh-client amd64 1:6.6p1-2ubuntu2.8 [564 kB]
+Get:243 http://archive.ubuntu.com/ubuntu/ trusty-updates/main parted amd64 2.3-19ubuntu1.14.04.1 [44.2 kB]
+Get:244 http://archive.ubuntu.com/ubuntu/ trusty-updates/main rsync amd64 3.1.0-2ubuntu0.2 [284 kB]
+Get:245 http://archive.ubuntu.com/ubuntu/ trusty-updates/main wget amd64 1.15-1ubuntu1.14.04.2 [271 kB]
+Get:246 http://archive.ubuntu.com/ubuntu/ trusty/main xauth amd64 1:1.0.7-1ubuntu1 [25.8 kB]
+Get:247 http://archive.ubuntu.com/ubuntu/ trusty/main xml-core all 0.13+nmu2 [23.3 kB]
+Get:248 http://archive.ubuntu.com/ubuntu/ trusty/main at-spi2-core amd64 2.10.2.is.2.10.1-0ubuntu1 [43.1 kB]
+Get:249 http://archive.ubuntu.com/ubuntu/ trusty-updates/main binutils amd64 2.24-5ubuntu14.1 [2081 kB]
+Get:250 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgcc-4.8-dev amd64 4.8.4-2ubuntu1~14.04.3 [1688 kB]
+Get:251 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gcc-4.8 amd64 4.8.4-2ubuntu1~14.04.3 [5047 kB]
+Get:252 http://archive.ubuntu.com/ubuntu/ trusty/main gcc amd64 4:4.8.2-1ubuntu6 [5098 B]
+Get:253 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libstdc++-4.8-dev amd64 4.8.4-2ubuntu1~14.04.3 [1053 kB]
+Get:254 http://archive.ubuntu.com/ubuntu/ trusty-updates/main g++-4.8 amd64 4.8.4-2ubuntu1~14.04.3 [18.1 MB]
+Get:255 http://archive.ubuntu.com/ubuntu/ trusty/main g++ amd64 4:4.8.2-1ubuntu6 [1490 B]
+Get:256 http://archive.ubuntu.com/ubuntu/ trusty/main make amd64 3.81-8.2ubuntu3 [119 kB]
+Get:257 http://archive.ubuntu.com/ubuntu/ trusty/main libtimedate-perl all 2.3000-1 [37.2 kB]
+Get:258 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libdpkg-perl all 1.17.5ubuntu5.7 [179 kB]
+Get:259 http://archive.ubuntu.com/ubuntu/ trusty/main xz-utils amd64 5.1.1alpha+20120614-2ubuntu2 [78.8 kB]
+Get:260 http://archive.ubuntu.com/ubuntu/ trusty-updates/main patch amd64 2.7.1-4ubuntu2.3 [86.4 kB]
+Get:261 http://archive.ubuntu.com/ubuntu/ trusty-updates/main dpkg-dev all 1.17.5ubuntu5.7 [726 kB]
+Get:262 http://archive.ubuntu.com/ubuntu/ trusty/main build-essential amd64 11.6ubuntu6 [4838 B]
+Get:263 http://archive.ubuntu.com/ubuntu/ trusty-updates/main policykit-1 amd64 0.105-4ubuntu3.14.04.1 [51.3 kB]
+Get:264 http://archive.ubuntu.com/ubuntu/ trusty/main colord amd64 1.0.6-1 [213 kB]
+Get:265 http://archive.ubuntu.com/ubuntu/ trusty-updates/main curl amd64 7.35.0-1ubuntu2.10 [123 kB]
+Get:266 http://archive.ubuntu.com/ubuntu/ trusty-updates/main openjdk-7-jdk amd64 7u121-2.6.8-1ubuntu0.14.04.1 [16.1 MB]
+Get:267 http://archive.ubuntu.com/ubuntu/ trusty/main default-jdk amd64 2:1.7-51 [934 B]
+Get:268 http://archive.ubuntu.com/ubuntu/ trusty/main desktop-file-utils amd64 0.22-1ubuntu1 [43.2 kB]
+Get:269 http://archive.ubuntu.com/ubuntu/ trusty/main libfakeroot amd64 1.20-3ubuntu2 [25.4 kB]
+Get:270 http://archive.ubuntu.com/ubuntu/ trusty/main fakeroot amd64 1.20-3ubuntu2 [55.0 kB]
+Get:271 http://archive.ubuntu.com/ubuntu/ trusty/main fonts-dejavu-extra all 2.34-1ubuntu1 [1736 kB]
+Get:272 http://archive.ubuntu.com/ubuntu/ trusty/main liberror-perl all 0.17-1.1 [21.1 kB]
+Get:273 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git-man all 1:1.9.1-1ubuntu0.3 [699 kB]
+Get:274 http://archive.ubuntu.com/ubuntu/ trusty-updates/main git amd64 1:1.9.1-1ubuntu0.3 [2586 kB]
+Get:275 http://archive.ubuntu.com/ubuntu/ trusty/main x11-utils amd64 7.7+1 [230 kB]
+Get:276 http://archive.ubuntu.com/ubuntu/ trusty-updates/main udisks2 amd64 2.1.3-1ubuntu0.1 [170 kB]
+Get:277 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gvfs-common all 1.20.3-0ubuntu1.2 [42.3 kB]
+Get:278 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gvfs-libs amd64 1.20.3-0ubuntu1.2 [105 kB]
+Get:279 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gvfs-daemons amd64 1.20.3-0ubuntu1.2 [108 kB]
+Get:280 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gvfs amd64 1.20.3-0ubuntu1.2 [89.5 kB]
+Get:281 http://archive.ubuntu.com/ubuntu/ trusty/main hicolor-icon-theme all 0.13-1 [7140 B]
+Get:282 http://archive.ubuntu.com/ubuntu/ trusty/main libalgorithm-diff-perl all 1.19.02-3 [50.0 kB]
+Get:283 http://archive.ubuntu.com/ubuntu/ trusty/main libalgorithm-diff-xs-perl amd64 0.04-2build4 [12.6 kB]
+Get:284 http://archive.ubuntu.com/ubuntu/ trusty/main libalgorithm-merge-perl all 0.08-2 [12.7 kB]
+Get:285 http://archive.ubuntu.com/ubuntu/ trusty/main libfile-fcntllock-perl amd64 0.14-2build1 [15.9 kB]
+Get:286 http://archive.ubuntu.com/ubuntu/ trusty/main libgconf2-4 amd64 3.2.6-0ubuntu2 [2042 B]
+Get:287 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgphoto2-l10n all 2.5.3.1-1ubuntu2.2 [7602 B]
+Get:288 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgtk-3-bin amd64 3.10.8-0ubuntu1.6 [18.2 kB]
+Get:289 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libgtk2.0-bin amd64 2.24.23-0ubuntu1.4 [9774 B]
+Get:290 http://archive.ubuntu.com/ubuntu/ trusty/main xorg-sgml-doctools all 1:1.11-1 [12.9 kB]
+Get:291 http://archive.ubuntu.com/ubuntu/ trusty-updates/main x11proto-core-dev all 7.0.26-1~ubuntu2 [700 kB]
+Get:292 http://archive.ubuntu.com/ubuntu/ trusty/main libice-dev amd64 2:1.0.8-2 [57.6 kB]
+Get:293 http://archive.ubuntu.com/ubuntu/ trusty/main libjs-jquery all 1.7.2+dfsg-2ubuntu1 [78.8 kB]
+Get:294 http://archive.ubuntu.com/ubuntu/ trusty/main libpthread-stubs0-dev amd64 0.3-4 [4068 B]
+Get:295 http://archive.ubuntu.com/ubuntu/ trusty/main libpython-dev amd64 2.7.5-5ubuntu3 [7078 B]
+Get:296 http://archive.ubuntu.com/ubuntu/ trusty/main ruby all 1:1.9.3.4 [5334 B]
+Get:297 http://archive.ubuntu.com/ubuntu/ trusty-updates/main ruby1.9.1 amd64 1.9.3.484-2ubuntu1.2 [35.6 kB]
+Get:298 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libruby1.9.1 amd64 1.9.3.484-2ubuntu1.2 [2645 kB]
+Get:299 http://archive.ubuntu.com/ubuntu/ trusty/main libsm-dev amd64 2:1.2.1-2 [19.9 kB]
+Get:300 http://archive.ubuntu.com/ubuntu/ trusty/main libxau-dev amd64 1:1.0.8-1 [11.1 kB]
+Get:301 http://archive.ubuntu.com/ubuntu/ trusty/main libxdmcp-dev amd64 1:1.1.1-1 [26.9 kB]
+Get:302 http://archive.ubuntu.com/ubuntu/ trusty/main x11proto-input-dev all 2.3-1 [139 kB]
+Get:303 http://archive.ubuntu.com/ubuntu/ trusty/main x11proto-kb-dev all 1.0.6-2 [269 kB]
+Get:304 http://archive.ubuntu.com/ubuntu/ trusty-updates/main xtrans-dev all 1.3.5-1~ubuntu14.04.1 [70.3 kB]
+Get:305 http://archive.ubuntu.com/ubuntu/ trusty/main libxcb1-dev amd64 1.10-2ubuntu1 [76.6 kB]
+Get:306 http://archive.ubuntu.com/ubuntu/ trusty/main libx11-dev amd64 2:1.6.2-1ubuntu2 [629 kB]
+Get:307 http://archive.ubuntu.com/ubuntu/ trusty/main libx11-doc all 2:1.6.2-1ubuntu2 [1448 kB]
+Get:308 http://archive.ubuntu.com/ubuntu/ trusty/main libxt-dev amd64 1:1.1.4-1 [455 kB]
+Get:309 http://archive.ubuntu.com/ubuntu/ trusty/main lksctp-tools amd64 1.0.15+dfsg-1 [51.3 kB]
+Get:310 http://archive.ubuntu.com/ubuntu/ trusty/main manpages-dev all 3.54-1ubuntu1 [1820 kB]
+Get:311 http://archive.ubuntu.com/ubuntu/ trusty/universe mc-data all 3:4.8.11-1 [1134 kB]
+Get:312 http://archive.ubuntu.com/ubuntu/ trusty/universe mc amd64 3:4.8.11-1 [453 kB]
+Get:313 http://archive.ubuntu.com/ubuntu/ trusty/main ncurses-term all 5.9+20140118-1ubuntu1 [243 kB]
+Get:314 http://archive.ubuntu.com/ubuntu/ trusty-updates/main openssh-sftp-server amd64 1:6.6p1-2ubuntu2.8 [34.2 kB]
+Get:315 http://archive.ubuntu.com/ubuntu/ trusty-updates/main openssh-server amd64 1:6.6p1-2ubuntu2.8 [322 kB]
+Get:316 http://archive.ubuntu.com/ubuntu/ trusty/main policykit-1-gnome amd64 0.105-1ubuntu4 [27.8 kB]
+Get:317 http://archive.ubuntu.com/ubuntu/ trusty/main python-blinker all 1.3.dfsg1-1ubuntu2 [29.8 kB]
+Get:318 http://archive.ubuntu.com/ubuntu/ trusty/main python-chardet all 2.0.1-2build2 [106 kB]
+Get:319 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python3-pkg-resources all 3.3-1ubuntu2 [31.7 kB]
+Get:320 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-chardet-whl all 2.2.1-2~ubuntu1 [170 kB]
+Get:321 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-colorama all 0.2.5-0.1ubuntu2 [18.4 kB]
+Get:322 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-colorama-whl all 0.2.5-0.1ubuntu2 [18.2 kB]
+Get:323 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python2.7-dev amd64 2.7.6-8ubuntu0.3 [269 kB]
+Get:324 http://archive.ubuntu.com/ubuntu/ trusty/main python-dev amd64 2.7.5-5ubuntu3 [1166 B]
+Get:325 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-distlib all 0.1.8-1ubuntu1 [113 kB]
+Get:326 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-distlib-whl all 0.1.8-1ubuntu1 [140 kB]
+Get:327 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-werkzeug all 0.9.4+dfsg-1.1ubuntu2 [236 kB]
+Get:328 http://archive.ubuntu.com/ubuntu/ trusty/main python-markupsafe amd64 0.18-1build2 [14.3 kB]
+Get:329 http://archive.ubuntu.com/ubuntu/ trusty/main python-jinja2 all 2.7.2-2 [161 kB]
+Get:330 http://archive.ubuntu.com/ubuntu/ trusty/main python-itsdangerous all 0.22+dfsg1-1build1 [11.5 kB]
+Get:331 http://archive.ubuntu.com/ubuntu/ trusty/main python-flask all 0.10.1-2build1 [51.7 kB]
+Get:332 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-six all 1.5.2-1ubuntu1 [8238 B]
+Get:333 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-html5lib all 0.999-3~ubuntu1 [83.5 kB]
+Get:334 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-html5lib-whl all 0.999-3~ubuntu1 [109 kB]
+Get:335 http://archive.ubuntu.com/ubuntu/ trusty/main python-openssl amd64 0.13-2ubuntu6 [81.5 kB]
+Get:336 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-six-whl all 1.5.2-1ubuntu1 [10.5 kB]
+Get:337 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-urllib3-whl all 1.7.1-1ubuntu4 [64.0 kB]
+Get:338 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-requests-whl all 2.2.1-1ubuntu0.3 [227 kB]
+Get:339 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-setuptools-whl all 3.3-1ubuntu2 [244 kB]
+Get:340 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-pip-whl all 1.5.4-1ubuntu4 [111 kB]
+Get:341 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-pkg-resources all 3.3-1ubuntu2 [61.9 kB]
+Get:342 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-urllib3 all 1.7.1-1ubuntu4 [39.5 kB]
+Get:343 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-requests all 2.2.1-1ubuntu0.3 [43.1 kB]
+Get:344 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-setuptools all 3.3-1ubuntu2 [230 kB]
+Get:345 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-pip all 1.5.4-1ubuntu4 [97.3 kB]
+Get:346 http://archive.ubuntu.com/ubuntu/ trusty/main python-pyinotify all 0.9.4-1build1 [24.5 kB]
+Get:347 http://archive.ubuntu.com/ubuntu/ trusty-updates/universe python-virtualenv all 1.11.4-1ubuntu1 [1485 kB]
+Get:348 http://archive.ubuntu.com/ubuntu/ trusty-updates/main python-wheel all 0.24.0-1~ubuntu1 [44.7 kB]
+Get:349 http://archive.ubuntu.com/ubuntu/ trusty/main tcpd amd64 7.6.q-25 [23.0 kB]
+Get:350 http://archive.ubuntu.com/ubuntu/ trusty-updates/main unzip amd64 6.0-9ubuntu1.5 [157 kB]
+Get:351 http://archive.ubuntu.com/ubuntu/ trusty-updates/main vim-runtime all 2:7.4.052-1ubuntu3.1 [4882 kB]
+Get:352 http://archive.ubuntu.com/ubuntu/ trusty-updates/main vim amd64 2:7.4.052-1ubuntu3.1 [955 kB]
+Get:353 http://archive.ubuntu.com/ubuntu/ trusty-updates/main gdisk amd64 0.8.8-1ubuntu0.1 [185 kB]
+Get:354 http://archive.ubuntu.com/ubuntu/ trusty/main lynx-cur amd64 2.8.8pre4-1 [956 kB]
+Get:355 http://archive.ubuntu.com/ubuntu/ trusty/main lynx all 2.8.8pre4-1 [4184 B]
+Get:356 http://archive.ubuntu.com/ubuntu/ trusty/main ssh-import-id all 3.21-0ubuntu1 [9624 B]
 [91mdebconf: unable to initialize frontend: Dialog
 debconf: (TERM is not set, so the dialog frontend is not usable.)
 debconf: falling back to frontend: Readline
@@ -561,7 +575,7 @@ debconf: falling back to frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 [0m[91mdpkg-preconfigure: unable to re-open stdin: 
-[0mFetched 187 MB in 27min 12s (114 kB/s)
+[0mFetched 197 MB in 29min 20s (112 kB/s)
 Selecting previously unselected package libroken18-heimdal:amd64.
 (Reading database ... 11569 files and directories currently installed.)
 Preparing to unpack .../libroken18-heimdal_1.6~git20131207+dfsg-1ubuntu1.1_amd64.deb ...
@@ -570,20 +584,20 @@ Selecting previously unselected package libasn1-8-heimdal:amd64.
 Preparing to unpack .../libasn1-8-heimdal_1.6~git20131207+dfsg-1ubuntu1.1_amd64.deb ...
 Unpacking libasn1-8-heimdal:amd64 (1.6~git20131207+dfsg-1ubuntu1.1) ...
 Selecting previously unselected package libkrb5support0:amd64.
-Preparing to unpack .../libkrb5support0_1.12+dfsg-2ubuntu5.2_amd64.deb ...
-Unpacking libkrb5support0:amd64 (1.12+dfsg-2ubuntu5.2) ...
+Preparing to unpack .../libkrb5support0_1.12+dfsg-2ubuntu5.3_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.12+dfsg-2ubuntu5.3) ...
 Selecting previously unselected package libk5crypto3:amd64.
-Preparing to unpack .../libk5crypto3_1.12+dfsg-2ubuntu5.2_amd64.deb ...
-Unpacking libk5crypto3:amd64 (1.12+dfsg-2ubuntu5.2) ...
+Preparing to unpack .../libk5crypto3_1.12+dfsg-2ubuntu5.3_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.12+dfsg-2ubuntu5.3) ...
 Selecting previously unselected package libkeyutils1:amd64.
 Preparing to unpack .../libkeyutils1_1.5.6-1_amd64.deb ...
 Unpacking libkeyutils1:amd64 (1.5.6-1) ...
 Selecting previously unselected package libkrb5-3:amd64.
-Preparing to unpack .../libkrb5-3_1.12+dfsg-2ubuntu5.2_amd64.deb ...
-Unpacking libkrb5-3:amd64 (1.12+dfsg-2ubuntu5.2) ...
+Preparing to unpack .../libkrb5-3_1.12+dfsg-2ubuntu5.3_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.12+dfsg-2ubuntu5.3) ...
 Selecting previously unselected package libgssapi-krb5-2:amd64.
-Preparing to unpack .../libgssapi-krb5-2_1.12+dfsg-2ubuntu5.2_amd64.deb ...
-Unpacking libgssapi-krb5-2:amd64 (1.12+dfsg-2ubuntu5.2) ...
+Preparing to unpack .../libgssapi-krb5-2_1.12+dfsg-2ubuntu5.3_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.12+dfsg-2ubuntu5.3) ...
 Selecting previously unselected package libidn11:amd64.
 Preparing to unpack .../libidn11_1.28-1ubuntu2.1_amd64.deb ...
 Unpacking libidn11:amd64 (1.28-1ubuntu2.1) ...
@@ -893,8 +907,8 @@ Selecting previously unselected package liblcms2-2:amd64.
 Preparing to unpack .../liblcms2-2_2.5-0ubuntu4.1_amd64.deb ...
 Unpacking liblcms2-2:amd64 (2.5-0ubuntu4.1) ...
 Selecting previously unselected package libpcsclite1:amd64.
-Preparing to unpack .../libpcsclite1_1.8.10-1ubuntu1_amd64.deb ...
-Unpacking libpcsclite1:amd64 (1.8.10-1ubuntu1) ...
+Preparing to unpack .../libpcsclite1_1.8.10-1ubuntu1.1_amd64.deb ...
+Unpacking libpcsclite1:amd64 (1.8.10-1ubuntu1.1) ...
 Selecting previously unselected package libogg0:amd64.
 Preparing to unpack .../libogg0_1.3.1-1ubuntu1_amd64.deb ...
 Unpacking libogg0:amd64 (1.3.1-1ubuntu1) ...
@@ -928,10 +942,10 @@ Unpacking libgif4:amd64 (4.1.6-11) ...
 Selecting previously unselected package x11-common.
 Preparing to unpack .../x11-common_1%3a7.7+1ubuntu8.1_all.deb ...
 [91mdebconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
+[0m[91mdebconf: (TERM is not set, so the dialog frontend is not usable.)
+[0m[91mdebconf: falling back to frontend: Readline
 [0m[91mdebconf: unable to initialize frontend: Readline
-debconf: (This frontend requires a controlling tty.)
+[0m[91mdebconf: (This frontend requires a controlling tty.)
 [0m[91mdebconf: falling back to frontend: Teletype
 [0mUnpacking x11-common (1:7.7+1ubuntu8.1) ...
 Selecting previously unselected package libxtst6:amd64.
@@ -1153,6 +1167,9 @@ Unpacking libgphoto2-port10:amd64 (2.5.3.1-1ubuntu2.2) ...
 Selecting previously unselected package libgphoto2-6:amd64.
 Preparing to unpack .../libgphoto2-6_2.5.3.1-1ubuntu2.2_amd64.deb ...
 Unpacking libgphoto2-6:amd64 (2.5.3.1-1ubuntu2.2) ...
+Selecting previously unselected package libgpm2:amd64.
+Preparing to unpack .../libgpm2_1.20.4-6.1_amd64.deb ...
+Unpacking libgpm2:amd64 (1.20.4-6.1) ...
 Selecting previously unselected package dconf-service.
 Preparing to unpack .../dconf-service_0.20.0-1_amd64.deb ...
 Unpacking dconf-service (0.20.0-1) ...
@@ -1240,6 +1257,9 @@ Unpacking libsecret-1-0:amd64 (0.16-0ubuntu1) ...
 Selecting previously unselected package libsm6:amd64.
 Preparing to unpack .../libsm6_2%3a1.2.1-2_amd64.deb ...
 Unpacking libsm6:amd64 (2:1.2.1-2) ...
+Selecting previously unselected package libssh2-1:amd64.
+Preparing to unpack .../libssh2-1_1.4.3-2_amd64.deb ...
+Unpacking libssh2-1:amd64 (1.4.3-2) ...
 Selecting previously unselected package libtsan0:amd64.
 Preparing to unpack .../libtsan0_4.8.4-2ubuntu1~14.04.3_amd64.deb ...
 Unpacking libtsan0:amd64 (4.8.4-2ubuntu1~14.04.3) ...
@@ -1286,8 +1306,8 @@ Selecting previously unselected package groff-base.
 Preparing to unpack .../groff-base_1.22.2-5_amd64.deb ...
 Unpacking groff-base (1.22.2-5) ...
 Selecting previously unselected package krb5-locales.
-Preparing to unpack .../krb5-locales_1.12+dfsg-2ubuntu5.2_all.deb ...
-Unpacking krb5-locales (1.12+dfsg-2ubuntu5.2) ...
+Preparing to unpack .../krb5-locales_1.12+dfsg-2ubuntu5.3_all.deb ...
+Unpacking krb5-locales (1.12+dfsg-2ubuntu5.3) ...
 Selecting previously unselected package libglib2.0-data.
 Preparing to unpack .../libglib2.0-data_2.40.2-0ubuntu1_all.deb ...
 Unpacking libglib2.0-data (2.40.2-0ubuntu1) ...
@@ -1506,6 +1526,12 @@ Unpacking lksctp-tools (1.0.15+dfsg-1) ...
 Selecting previously unselected package manpages-dev.
 Preparing to unpack .../manpages-dev_3.54-1ubuntu1_all.deb ...
 Unpacking manpages-dev (3.54-1ubuntu1) ...
+Selecting previously unselected package mc-data.
+Preparing to unpack .../mc-data_3%3a4.8.11-1_all.deb ...
+Unpacking mc-data (3:4.8.11-1) ...
+Selecting previously unselected package mc.
+Preparing to unpack .../mc_3%3a4.8.11-1_amd64.deb ...
+Unpacking mc (3:4.8.11-1) ...
 Selecting previously unselected package ncurses-term.
 Preparing to unpack .../ncurses-term_5.9+20140118-1ubuntu1_all.deb ...
 Unpacking ncurses-term (5.9+20140118-1ubuntu1) ...
@@ -1608,15 +1634,35 @@ Unpacking python-pip (1.5.4-1ubuntu4) ...
 Selecting previously unselected package python-pyinotify.
 Preparing to unpack .../python-pyinotify_0.9.4-1build1_all.deb ...
 Unpacking python-pyinotify (0.9.4-1build1) ...
+Selecting previously unselected package python-virtualenv.
+Preparing to unpack .../python-virtualenv_1.11.4-1ubuntu1_all.deb ...
+Unpacking python-virtualenv (1.11.4-1ubuntu1) ...
 Selecting previously unselected package python-wheel.
 Preparing to unpack .../python-wheel_0.24.0-1~ubuntu1_all.deb ...
 Unpacking python-wheel (0.24.0-1~ubuntu1) ...
 Selecting previously unselected package tcpd.
 Preparing to unpack .../tcpd_7.6.q-25_amd64.deb ...
 Unpacking tcpd (7.6.q-25) ...
+Selecting previously unselected package unzip.
+Preparing to unpack .../unzip_6.0-9ubuntu1.5_amd64.deb ...
+Unpacking unzip (6.0-9ubuntu1.5) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../vim-runtime_2%3a7.4.052-1ubuntu3.1_all.deb ...
+Adding 'diversion of /usr/share/vim/vim74/doc/help.txt to /usr/share/vim/vim74/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim74/doc/tags to /usr/share/vim/vim74/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:7.4.052-1ubuntu3.1) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../vim_2%3a7.4.052-1ubuntu3.1_amd64.deb ...
+Unpacking vim (2:7.4.052-1ubuntu3.1) ...
 Selecting previously unselected package gdisk.
 Preparing to unpack .../gdisk_0.8.8-1ubuntu0.1_amd64.deb ...
 Unpacking gdisk (0.8.8-1ubuntu0.1) ...
+Selecting previously unselected package lynx-cur.
+Preparing to unpack .../lynx-cur_2.8.8pre4-1_amd64.deb ...
+Unpacking lynx-cur (2.8.8pre4-1) ...
+Selecting previously unselected package lynx.
+Preparing to unpack .../lynx_2.8.8pre4-1_all.deb ...
+Unpacking lynx (2.8.8pre4-1) ...
 Selecting previously unselected package ssh-import-id.
 Preparing to unpack .../ssh-import-id_3.21-0ubuntu1_all.deb ...
 Unpacking ssh-import-id (3.21-0ubuntu1) ...
@@ -1626,11 +1672,11 @@ Processing triggers for mime-support (3.54ubuntu1.1) ...
 Processing triggers for udev (204-5ubuntu20.20) ...
 Setting up libroken18-heimdal:amd64 (1.6~git20131207+dfsg-1ubuntu1.1) ...
 Setting up libasn1-8-heimdal:amd64 (1.6~git20131207+dfsg-1ubuntu1.1) ...
-Setting up libkrb5support0:amd64 (1.12+dfsg-2ubuntu5.2) ...
-Setting up libk5crypto3:amd64 (1.12+dfsg-2ubuntu5.2) ...
+Setting up libkrb5support0:amd64 (1.12+dfsg-2ubuntu5.3) ...
+Setting up libk5crypto3:amd64 (1.12+dfsg-2ubuntu5.3) ...
 Setting up libkeyutils1:amd64 (1.5.6-1) ...
-Setting up libkrb5-3:amd64 (1.12+dfsg-2ubuntu5.2) ...
-Setting up libgssapi-krb5-2:amd64 (1.12+dfsg-2ubuntu5.2) ...
+Setting up libkrb5-3:amd64 (1.12+dfsg-2ubuntu5.3) ...
+Setting up libgssapi-krb5-2:amd64 (1.12+dfsg-2ubuntu5.3) ...
 Setting up libidn11:amd64 (1.28-1ubuntu2.1) ...
 Setting up libhcrypto4-heimdal:amd64 (1.6~git20131207+dfsg-1ubuntu1.1) ...
 Setting up libheimbase1-heimdal:amd64 (1.6~git20131207+dfsg-1ubuntu1.1) ...
@@ -1669,7 +1715,7 @@ Setting up libxml2:amd64 (2.9.1+dfsg1-3ubuntu4.8) ...
 Setting up libxmuu1:amd64 (2:1.1.1-1) ...
 Setting up ntfs-3g (1:2013.1.13AR.1-2ubuntu2) ...
 [91mdebconf: unable to initialize frontend: Dialog
-debconf: (TERM is not set, so the dialog frontend is not usable.)
+[0m[91mdebconf: (TERM is not set, so the dialog frontend is not usable.)
 [0m[91mdebconf: falling back to frontend: Readline
 [0m[91mdebconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
@@ -1728,16 +1774,16 @@ Setting up libgtk2.0-0:amd64 (2.24.23-0ubuntu1.4) ...
 Setting up openssl (1.0.1f-1ubuntu2.21) ...
 Setting up ca-certificates (20160104ubuntu0.14.04.1) ...
 [91mdebconf: unable to initialize frontend: Dialog
-[0m[91mdebconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: (TERM is not set, so the dialog frontend is not usable.)
 debconf: falling back to frontend: Readline
 [0m[91mdebconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
-[0m[91mdebconf: falling back to frontend: Teletype
+debconf: falling back to frontend: Teletype
 [0mSetting up libnspr4:amd64 (2:4.12-0ubuntu0.14.04.1) ...
 Setting up tzdata-java (2016j-0ubuntu0.14.04) ...
 Setting up java-common (0.51) ...
 Setting up liblcms2-2:amd64 (2.5-0ubuntu4.1) ...
-Setting up libpcsclite1:amd64 (1.8.10-1ubuntu1) ...
+Setting up libpcsclite1:amd64 (1.8.10-1ubuntu1.1) ...
 Setting up libogg0:amd64 (1.3.1-1ubuntu1) ...
 Setting up libflac8:amd64 (1.3.0-2ubuntu0.14.04.1) ...
 Setting up libvorbis0a:amd64 (1.3.2-1.3ubuntu1) ...
@@ -1749,7 +1795,7 @@ Setting up libgif4:amd64 (4.1.6-11) ...
 Setting up x11-common (1:7.7+1ubuntu8.1) ...
 [91mdebconf: unable to initialize frontend: Dialog
 debconf: (TERM is not set, so the dialog frontend is not usable.)
-debconf: falling back to frontend: Readline
+[0m[91mdebconf: falling back to frontend: Readline
 [0m[91mdebconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
@@ -1802,7 +1848,7 @@ debconf: (TERM is not set, so the dialog frontend is not usable.)
 debconf: falling back to frontend: Readline
 [0m[91mdebconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
-[0m[91mdebconf: falling back to frontend: Teletype
+debconf: falling back to frontend: Teletype
 [0m[91m
 Creating config file /etc/gconf/2/path with new version
 [0mSetting up libgconf-2-4:amd64 (3.2.6-0ubuntu2) ...
@@ -1823,6 +1869,7 @@ Setting up python (2.7.5-5ubuntu3) ...
 Setting up libgomp1:amd64 (4.8.4-2ubuntu1~14.04.3) ...
 Setting up libgphoto2-port10:amd64 (2.5.3.1-1ubuntu2.2) ...
 Setting up libgphoto2-6:amd64 (2.5.3.1-1ubuntu2.2) ...
+Setting up libgpm2:amd64 (1.20.4-6.1) ...
 Setting up dconf-service (0.20.0-1) ...
 Setting up dconf-gsettings-backend:amd64 (0.20.0-1) ...
 Setting up libgtk-3-common (3.10.8-0ubuntu1.6) ...
@@ -1851,6 +1898,7 @@ Setting up libsane:amd64 (1.0.23-3ubuntu3.1) ...
 Adding scanner group...
 Setting up libsecret-common (0.16-0ubuntu1) ...
 Setting up libsecret-1-0:amd64 (0.16-0ubuntu1) ...
+Setting up libssh2-1:amd64 (1.4.3-2) ...
 Setting up libtsan0:amd64 (4.8.4-2ubuntu1~14.04.3) ...
 Setting up libudisks2-0:amd64 (2.1.3-1ubuntu0.1) ...
 Setting up libxcb-shape0:amd64 (1.10-2ubuntu1) ...
@@ -1864,7 +1912,7 @@ Setting up libtxc-dxtn-s2tc0:amd64 (0~git20131104-1.1) ...
 update-alternatives: using /usr/lib/x86_64-linux-gnu/libtxc_dxtn_s2tc.so.0 to provide /usr/lib/x86_64-linux-gnu/libtxc_dxtn.so (libtxc-dxtn-x86_64-linux-gnu) in auto mode
 Setting up dosfstools (3.0.26-1ubuntu0.1) ...
 Setting up groff-base (1.22.2-5) ...
-Setting up krb5-locales (1.12+dfsg-2ubuntu5.2) ...
+Setting up krb5-locales (1.12+dfsg-2ubuntu5.3) ...
 Setting up libglib2.0-data (2.40.2-0ubuntu1) ...
 Setting up libsasl2-modules:amd64 (2.1.25.dfsg1-17build1) ...
 Setting up manpages (3.54-1ubuntu1) ...
@@ -1935,6 +1983,10 @@ Setting up libx11-dev:amd64 (2:1.6.2-1ubuntu2) ...
 Setting up libx11-doc (2:1.6.2-1ubuntu2) ...
 Setting up lksctp-tools (1.0.15+dfsg-1) ...
 Setting up manpages-dev (3.54-1ubuntu1) ...
+Setting up mc-data (3:4.8.11-1) ...
+Setting up mc (3:4.8.11-1) ...
+update-alternatives: using /usr/bin/mcview to provide /usr/bin/view (view) in auto mode
+update-alternatives: using /usr/bin/mcedit to provide /usr/bin/editor (editor) in auto mode
 Setting up ncurses-term (5.9+20140118-1ubuntu1) ...
 Setting up openssh-sftp-server (1:6.6p1-2ubuntu2.8) ...
 Setting up openssh-server (1:6.6p1-2ubuntu2.8) ...
@@ -1942,7 +1994,7 @@ Setting up openssh-server (1:6.6p1-2ubuntu2.8) ...
 debconf: (TERM is not set, so the dialog frontend is not usable.)
 debconf: falling back to frontend: Readline
 [0m[91mdebconf: unable to initialize frontend: Readline
-[0m[91mdebconf: (This frontend requires a controlling tty.)
+debconf: (This frontend requires a controlling tty.)
 debconf: falling back to frontend: Teletype
 [0m[91mCreating SSH2 RSA key; this may take some time ...[0m[91m
 [0m[91mCreating SSH2 DSA key; this may take some time ...[0m[91m
@@ -1979,9 +2031,25 @@ Setting up python-requests (2.2.1-1ubuntu0.3) ...
 Setting up python-setuptools (3.3-1ubuntu2) ...
 Setting up python-pip (1.5.4-1ubuntu4) ...
 Setting up python-pyinotify (0.9.4-1build1) ...
+Setting up python-virtualenv (1.11.4-1ubuntu1) ...
 Setting up python-wheel (0.24.0-1~ubuntu1) ...
 Setting up tcpd (7.6.q-25) ...
+Setting up unzip (6.0-9ubuntu1.5) ...
+Setting up vim-runtime (2:7.4.052-1ubuntu3.1) ...
+Processing /usr/share/vim/addons/doc
+Setting up vim (2:7.4.052-1ubuntu3.1) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
 Setting up gdisk (0.8.8-1ubuntu0.1) ...
+Setting up lynx-cur (2.8.8pre4-1) ...
+update-alternatives: using /usr/bin/lynx to provide /usr/bin/www-browser (www-browser) in auto mode
+Setting up lynx (2.8.8pre4-1) ...
 Setting up ssh-import-id (3.21-0ubuntu1) ...
 Processing triggers for ureadahead (0.100.0-16) ...
 Setting up libxtst6:amd64 (2:1.2.2-1) ...
@@ -2014,10 +2082,10 @@ Setting up libruby1.9.1 (1.9.3.484-2ubuntu1.2) ...
 Setting up systemd-services (204-5ubuntu20.20) ...
 Setting up libpam-systemd:amd64 (204-5ubuntu20.20) ...
 [91mdebconf: unable to initialize frontend: Dialog
-[0m[91mdebconf: (TERM is not set, so the dialog frontend is not usable.)
-[0m[91mdebconf: falling back to frontend: Readline
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
 [0m[91mdebconf: unable to initialize frontend: Readline
-[0m[91mdebconf: (This frontend requires a controlling tty.)
+debconf: (This frontend requires a controlling tty.)
 [0m[91mdebconf: falling back to frontend: Teletype
 [0m[91minvoke-rc.d: unknown initscript, /etc/init.d/systemd-logind not found.
 [0m[91minvoke-rc.d: policy-rc.d denied execution of start.
@@ -2040,7 +2108,7 @@ Setting up gconf-service-backend (3.2.6-0ubuntu2) ...
 Setting up gconf2 (3.2.6-0ubuntu2) ...
 update-alternatives: using /usr/bin/gconftool-2 to provide /usr/bin/gconftool (gconftool) in auto mode
 [91m
-(gconftool-2:6313): GConf-WARNING **: Client failed to connect to the D-BUS daemon:
+(gconftool-2:6517): GConf-WARNING **: Client failed to connect to the D-BUS daemon:
 Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
 [0mSetting up libgnomevfs2-common (1:2.24.4-1ubuntu6) ...
 Setting up libgnomevfs2-0:amd64 (1:2.24.4-1ubuntu6) ...
@@ -2265,18 +2333,18 @@ Adding debian:thawte_Primary_Root_CA_-_G3.pem
 done.
 done.
 Processing triggers for sgml-base (1.26+nmu4ubuntu1) ...
- ---> 2d0ee42aade5
-Removing intermediate container 42be18db9be1
-Step 4/26 : RUN mkdir /var/run/sshd
- ---> Running in cd8e9aae54b3
- ---> e4f92c160ee5
-Removing intermediate container cd8e9aae54b3
-Step 5/26 : RUN echo 'root:curiousfaun' | chpasswd
- ---> Running in 5918df4e8649
- ---> e564ac90704f
-Removing intermediate container 5918df4e8649
-Step 6/26 : RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
- ---> Running in cf96390bc362
+ ---> 43d242761210
+Removing intermediate container 04b208c85647
+Step 4/30 : RUN mkdir /var/run/sshd
+ ---> Running in e69e4946fa8a
+ ---> 34a287aefe75
+Removing intermediate container e69e4946fa8a
+Step 5/30 : RUN echo 'root:curiousfaun' | chpasswd
+ ---> Running in d728ce0a97b1
+ ---> 5f18191545b3
+Removing intermediate container d728ce0a97b1
+Step 6/30 : RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
+ ---> Running in 1a7c52d3e663
 
 ## Installing the NodeSource Node.js v7.x repo...
 
@@ -2285,28 +2353,29 @@ Step 6/26 : RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
 
 + apt-get update
 Ign http://archive.ubuntu.com trusty InRelease
-Hit http://archive.ubuntu.com trusty-updates InRelease
-Hit http://archive.ubuntu.com trusty-security InRelease
+Get:1 http://archive.ubuntu.com trusty-updates InRelease [65.9 kB]
+Get:2 http://archive.ubuntu.com trusty-security InRelease [65.9 kB]
 Hit http://archive.ubuntu.com trusty Release.gpg
+Get:3 http://archive.ubuntu.com trusty-updates/main Sources [481 kB]
+Get:4 http://archive.ubuntu.com trusty-updates/restricted Sources [5957 B]
+Get:5 http://archive.ubuntu.com trusty-updates/universe Sources [216 kB]
+Get:6 http://archive.ubuntu.com trusty-updates/main amd64 Packages [1173 kB]
+Get:7 http://archive.ubuntu.com trusty-updates/restricted amd64 Packages [20.4 kB]
+Get:8 http://archive.ubuntu.com trusty-updates/universe amd64 Packages [509 kB]
 Hit http://archive.ubuntu.com trusty Release
-Hit http://archive.ubuntu.com trusty-updates/main Sources
-Hit http://archive.ubuntu.com trusty-updates/restricted Sources
-Hit http://archive.ubuntu.com trusty-updates/universe Sources
-Hit http://archive.ubuntu.com trusty-updates/main amd64 Packages
-Hit http://archive.ubuntu.com trusty-updates/restricted amd64 Packages
-Hit http://archive.ubuntu.com trusty-updates/universe amd64 Packages
-Hit http://archive.ubuntu.com trusty-security/main Sources
-Hit http://archive.ubuntu.com trusty-security/restricted Sources
-Hit http://archive.ubuntu.com trusty-security/universe Sources
-Hit http://archive.ubuntu.com trusty-security/main amd64 Packages
-Hit http://archive.ubuntu.com trusty-security/restricted amd64 Packages
-Hit http://archive.ubuntu.com trusty-security/universe amd64 Packages
+Get:9 http://archive.ubuntu.com trusty-security/main Sources [158 kB]
+Get:10 http://archive.ubuntu.com trusty-security/restricted Sources [4667 B]
+Get:11 http://archive.ubuntu.com trusty-security/universe Sources [56.8 kB]
+Get:12 http://archive.ubuntu.com trusty-security/main amd64 Packages [711 kB]
+Get:13 http://archive.ubuntu.com trusty-security/restricted amd64 Packages [17.0 kB]
+Get:14 http://archive.ubuntu.com trusty-security/universe amd64 Packages [194 kB]
 Hit http://archive.ubuntu.com trusty/main Sources
 Hit http://archive.ubuntu.com trusty/restricted Sources
 Hit http://archive.ubuntu.com trusty/universe Sources
 Hit http://archive.ubuntu.com trusty/main amd64 Packages
 Hit http://archive.ubuntu.com trusty/restricted amd64 Packages
 Hit http://archive.ubuntu.com trusty/universe amd64 Packages
+Fetched 3678 kB in 36s (101 kB/s)
 Reading package lists...
 
 ## Installing packages required for setup: apt-transport-https...
@@ -2356,15 +2425,15 @@ Hit http://archive.ubuntu.com trusty/universe Sources
 Hit http://archive.ubuntu.com trusty/main amd64 Packages
 Hit http://archive.ubuntu.com trusty/restricted amd64 Packages
 Hit http://archive.ubuntu.com trusty/universe amd64 Packages
-Fetched 5651 B in 8s (703 B/s)
+Fetched 5651 B in 5s (1000 B/s)
 Reading package lists...
 
 ## Run `apt-get install nodejs` (as root) to install Node.js v7.x and npm
 
- ---> 5c249fd21a74
-Removing intermediate container cf96390bc362
-Step 7/26 : RUN apt-get install -y nodejs
- ---> Running in 16f98570602f
+ ---> 385f2947dd73
+Removing intermediate container 1a7c52d3e663
+Step 7/30 : RUN apt-get install -y nodejs
+ ---> Running in 1ba8084f6745
 Reading package lists...
 Building dependency tree...
 Reading state information...
@@ -2372,7 +2441,7 @@ The following NEW packages will be installed:
   nodejs
 [91mdebconf: unable to initialize frontend: Dialog
 debconf: (TERM is not set, so the dialog frontend is not usable.)
-[0m[91mdebconf: falling back to frontend: Readline
+debconf: falling back to frontend: Readline
 [0m[91mdebconf: unable to initialize frontend: Readline
 debconf: (This frontend requires a controlling tty.)
 [0m[91mdebconf: falling back to frontend: Teletype
@@ -2380,32 +2449,32 @@ debconf: (This frontend requires a controlling tty.)
 [0m0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
 Need to get 10.8 MB of archives.
 After this operation, 54.7 MB of additional disk space will be used.
-Fetched 10.8 MB in 3s (3296 kB/s)
+Fetched 10.8 MB in 3s (3413 kB/s)
 Selecting previously unselected package nodejs.
-(Reading database ... 30070 files and directories currently installed.)
+(Reading database ... 32191 files and directories currently installed.)
 Preparing to unpack .../nodejs_7.4.0-1nodesource1~trusty1_amd64.deb ...
 Unpacking nodejs (7.4.0-1nodesource1~trusty1) ...
 Setting up nodejs (7.4.0-1nodesource1~trusty1) ...
- ---> 22ac829b9a7c
-Removing intermediate container 16f98570602f
-Step 8/26 : ADD requirements.txt /tmp
- ---> c72dfc969c98
-Removing intermediate container 6aee81b9a8a5
-Step 9/26 : RUN npm install --no-bin-links
- ---> Running in 6f29837b0149
+ ---> b6c19e9e49ad
+Removing intermediate container 1ba8084f6745
+Step 8/30 : ADD requirements.txt /tmp
+ ---> 9ea9d15c0c4c
+Removing intermediate container e0674fa33579
+Step 9/30 : RUN npm install --no-bin-links
+ ---> Running in 6ebafb03ca66
 [91mnpm[0m[91m [0m[91mWARN enoent ENOENT: no such file or directory, open '/package.json'
-[0m[91mnpm[0m[91m WARN[0m[91m !invalid#1 No description
-[0m[91mnpm WARN !invalid#1 No repository field.
-npm WARN !invalid#1 No README data
-[0m[91mnpm [0m[91mWARN !invalid#1 No license field.
-[0m ---> 01e541da4147
-Removing intermediate container 6f29837b0149
-Step 10/26 : RUN npm rebuild node-sass -no-bin-links
- ---> Running in df516f621d88
- ---> 2cc0b2e5c299
-Removing intermediate container df516f621d88
-Step 11/26 : RUN pip install -r /tmp/requirements.txt
- ---> Running in 46278d7c2a30
+[0m[91mnpm [0m[91mWARN !invalid#1 No description
+npm [0m[91mWARN !invalid#1 No repository field.
+npm WARN[0m[91m !invalid#1 No README data
+npm WARN !invalid#1 No license field.
+[0m ---> 289dd28da577
+Removing intermediate container 6ebafb03ca66
+Step 10/30 : RUN npm rebuild node-sass -no-bin-links
+ ---> Running in bf28cb55469c
+ ---> 77793e1a53f9
+Removing intermediate container bf28cb55469c
+Step 11/30 : RUN pip install -r /tmp/requirements.txt
+ ---> Running in 23688b1cdb47
 Downloading/unpacking flask-login (from -r /tmp/requirements.txt (line 1))
   Downloading Flask_Login-0.4.0-py2.py3-none-any.whl
 Downloading/unpacking flask-sqlalchemy (from -r /tmp/requirements.txt (line 2))
@@ -2494,10 +2563,10 @@ Installing collected packages: flask-login, flask-sqlalchemy, pafy, Flask-WTF, F
     
 Successfully installed flask-login flask-sqlalchemy pafy Flask-WTF Flask-PyMongo SQLAlchemy WTForms PyMongo
 Cleaning up...
- ---> 96707d11ff74
-Removing intermediate container 46278d7c2a30
-Step 12/26 : RUN npm install socket.io
- ---> Running in de3ad3e9e41a
+ ---> e8c9884522d0
+Removing intermediate container 23688b1cdb47
+Step 12/30 : RUN npm install socket.io
+ ---> Running in bb7e59f5bd0a
 /
 `-- socket.io@1.7.2 
   +-- debug@2.3.3 
@@ -2546,15 +2615,15 @@ Step 12/26 : RUN npm install socket.io
     | `-- ms@0.7.1 
     `-- json3@3.3.2 
 
-[91mnpm [0m[91mWARN enoent ENOENT: no such file or directory, open '/package.json'
-[0m[91mnpm[0m[91m WARN !invalid#1 No description
+[91mnpm[0m[91m WARN enoent ENOENT: no such file or directory, open '/package.json'
+npm WARN !invalid#1 No description
 npm WARN !invalid#1 No repository field.
-npm[0m[91m WARN !invalid#1 No README data
-npm WARN !invalid#1 No license field.
-[0m ---> 7795b0e0c1ec
-Removing intermediate container de3ad3e9e41a
-Step 13/26 : RUN npm install webpack
- ---> Running in a3890b0ac009
+npm WARN[0m[91m !invalid#1 No README data
+npm [0m[91mWARN !invalid#1 No license field.
+[0m ---> 6c74999085f3
+Removing intermediate container bb7e59f5bd0a
+Step 13/30 : RUN npm install webpack
+ ---> Running in bdd037a3948d
 /
 `-- webpack@1.14.0 
   +-- acorn@3.3.0 
@@ -2693,17 +2762,17 @@ Step 13/26 : RUN npm install webpack
     `-- source-map@0.4.4 
       `-- amdefine@1.0.1 
 
-[91mnpm[0m[91m [0m[91mWARN[0m[91m [0m[91moptional[0m[91m SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules/chokidar/node_modules/fsevents):
-[0m[91mnpm[0m[91m [0m[91mWARN [0m[91mnotsup[0m[91m SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.0.17: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-[0m[91mnpm [0m[91mWARN[0m[91m [0m[91menoent[0m[91m ENOENT: no such file or directory, open '/package.json'
-[0m[91mnpm [0m[91mWARN[0m[91m !invalid#1 No description
-[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m !invalid#1 No repository field.
-[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m !invalid#1 No README data
-[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m !invalid#1 No license field.
-[0m ---> 8fdab562e435
-Removing intermediate container a3890b0ac009
-Step 14/26 : RUN gem install sass
- ---> Running in 7299080103de
+[91mnpm WARN[0m[91m optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules/chokidar/node_modules/fsevents):
+[0m[91mnpm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.0.17: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN enoent ENOENT: no such file or directory, open '/package.json'
+[0m[91mnpm WARN !invalid#1 No description
+[0m[91mnpm WARN[0m[91m !invalid#1 No repository field.
+npm WARN !invalid#1 No README data
+npm WARN !invalid#1 No license field.
+[0m ---> 18c22eee5851
+Removing intermediate container bdd037a3948d
+Step 14/30 : RUN gem install sass
+ ---> Running in e102cdadbb55
 [91munable to convert U+FFFD from UTF-8 to US-ASCII for lib/sass/util.rb, skipping
 [0m[91munable to convert U+FFFD from UTF-8 to US-ASCII for lib/sass/script/value/string.rb, skipping
 [0m[91munable to convert U+FFFD from UTF-8 to US-ASCII for lib/sass/util.rb, skipping
@@ -2712,11 +2781,11 @@ Step 14/26 : RUN gem install sass
 1 gem installed
 Installing ri documentation for sass-3.4.23...
 Installing RDoc documentation for sass-3.4.23...
- ---> c135c7009e78
-Removing intermediate container 7299080103de
-Step 15/26 : RUN npm install --save-dev babelify
- ---> Running in 8d752c0d5138
-[91mnpm[0m[91m WARN saveError ENOENT: no such file or directory, open '/package.json'
+ ---> 7ebbb2764cff
+Removing intermediate container e102cdadbb55
+Step 15/30 : RUN npm install --save-dev babelify
+ ---> Running in f246d73b1894
+[91mnpm WARN [0m[91msaveError ENOENT: no such file or directory, open '/package.json'
 [0m/
 `-- babelify@7.3.0 
   `-- babel-core@6.22.1 
@@ -2759,427 +2828,102 @@ Step 15/26 : RUN npm install --save-dev babelify
     +-- private@0.1.6 
     `-- slash@1.0.0 
 
-[91mnpm[0m[91m [0m[91mWARN[0m[91m [0m[91moptional[0m[91m SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules/chokidar/node_modules/fsevents):
-[0m[91mnpm[0m[91m WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.0.17: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
-[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m [0m[91menoent[0m[91m ENOENT: no such file or directory, open '/package.json'
-[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m !invalid#1 No description
-[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m !invalid#1 No repository field.
-[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m !invalid#1 No README data
-[0m[91mnpm[0m[91m [0m[91mWARN[0m[91m !invalid#1 No license field.
-[0m ---> 87bb40afac5f
-Removing intermediate container 8d752c0d5138
-Step 16/26 : RUN useradd webdev && echo 'webdev:webdev' | chpasswd
- ---> Running in 89cf2e77ad1f
- ---> 1aaa4dda8897
-Removing intermediate container 89cf2e77ad1f
-Step 17/26 : RUN echo "webdev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
- ---> Running in 86c4e915bfb0
- ---> 7255c8ec4f9c
-Removing intermediate container 86c4e915bfb0
-Step 18/26 : RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
- ---> Running in ae446f889107
- ---> 30031d2fe371
-Removing intermediate container ae446f889107
-Step 19/26 : ENV NOTVISIBLE "in users profile"
- ---> Running in e68e010d74ec
- ---> 768a3b2cf1f4
-Removing intermediate container e68e010d74ec
-Step 20/26 : RUN echo "export TERM=xterm" >> /etc/profile
- ---> Running in 5f8212b5d5c8
- ---> dbd51b6422e1
-Removing intermediate container 5f8212b5d5c8
-Step 21/26 : RUN /usr/bin/ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''
- ---> Running in c7acdab882c2
-Generating public/private rsa key pair.
-/etc/ssh/ssh_host_rsa_key already exists.
-Overwrite (y/n)? Sending build context to Docker daemon 178.7 kB
-Step 1/25 : FROM ubuntu:14.04
- ---> b969ab9f929b
-Step 2/25 : MAINTAINER Jason Odoom <jo75@njit.edu>
- ---> Using cache
- ---> 3590d074cf54
-Step 3/25 : RUN apt-get -q update     && apt-get -qy --force-yes dist-upgrade     && apt-get install -qy python-pip python-flask python-dev apt-utils      ruby git curl default-jre default-jdk openssh-server build-essential
- ---> Using cache
- ---> 2d0ee42aade5
-Step 4/25 : RUN mkdir /var/run/sshd
- ---> Using cache
- ---> e4f92c160ee5
-Step 5/25 : RUN echo 'root:curiousfaun' | chpasswd
- ---> Using cache
- ---> e564ac90704f
-Step 6/25 : RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
- ---> Using cache
- ---> 5c249fd21a74
-Step 7/25 : RUN apt-get install -y nodejs
- ---> Using cache
- ---> 22ac829b9a7c
-Step 8/25 : ADD requirements.txt /tmp
- ---> Using cache
- ---> c72dfc969c98
-Step 9/25 : RUN npm install --no-bin-links
- ---> Using cache
- ---> 01e541da4147
-Step 10/25 : RUN npm rebuild node-sass -no-bin-links
- ---> Using cache
- ---> 2cc0b2e5c299
-Step 11/25 : RUN pip install -r /tmp/requirements.txt
- ---> Using cache
- ---> 96707d11ff74
-Step 12/25 : RUN npm install socket.io
- ---> Using cache
- ---> 7795b0e0c1ec
-Step 13/25 : RUN npm install webpack
- ---> Using cache
- ---> 8fdab562e435
-Step 14/25 : RUN gem install sass
- ---> Using cache
- ---> c135c7009e78
-Step 15/25 : RUN npm install --save-dev babelify
- ---> Using cache
- ---> 87bb40afac5f
-Step 16/25 : RUN useradd webdev && echo 'webdev:webdev' | chpasswd
- ---> Using cache
- ---> 1aaa4dda8897
-Step 17/25 : RUN echo "webdev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
- ---> Using cache
- ---> 7255c8ec4f9c
-Step 18/25 : RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
- ---> Using cache
- ---> 30031d2fe371
-Step 19/25 : ENV NOTVISIBLE "in users profile"
- ---> Using cache
- ---> 768a3b2cf1f4
-Step 20/25 : RUN echo "export TERM=xterm" >> /etc/profile
- ---> Using cache
- ---> dbd51b6422e1
-Step 21/25 : RUN /usr/bin/ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''
- ---> Running in 77ccf3145df5
-Generating public/private rsa key pair.
-/etc/ssh/ssh_host_rsa_key already exists.
-Overwrite (y/n)? Sending build context to Docker daemon 180.7 kB
-Step 1/24 : FROM ubuntu:14.04
- ---> b969ab9f929b
-Step 2/24 : MAINTAINER Jason Odoom <jo75@njit.edu>
- ---> Using cache
- ---> 3590d074cf54
-Step 3/24 : RUN apt-get -q update     && apt-get -qy --force-yes dist-upgrade     && apt-get install -qy python-pip python-flask python-dev apt-utils      ruby git curl default-jre default-jdk openssh-server build-essential
- ---> Using cache
- ---> 2d0ee42aade5
-Step 4/24 : RUN mkdir /var/run/sshd
- ---> Using cache
- ---> e4f92c160ee5
-Step 5/24 : RUN echo 'root:curiousfaun' | chpasswd
- ---> Using cache
- ---> e564ac90704f
-Step 6/24 : RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
- ---> Using cache
- ---> 5c249fd21a74
-Step 7/24 : RUN apt-get install -y nodejs
- ---> Using cache
- ---> 22ac829b9a7c
-Step 8/24 : ADD requirements.txt /tmp
- ---> Using cache
- ---> c72dfc969c98
-Step 9/24 : RUN npm install --no-bin-links
- ---> Using cache
- ---> 01e541da4147
-Step 10/24 : RUN npm rebuild node-sass -no-bin-links
- ---> Using cache
- ---> 2cc0b2e5c299
-Step 11/24 : RUN pip install -r /tmp/requirements.txt
- ---> Using cache
- ---> 96707d11ff74
-Step 12/24 : RUN npm install socket.io
- ---> Using cache
- ---> 7795b0e0c1ec
-Step 13/24 : RUN npm install webpack
- ---> Using cache
- ---> 8fdab562e435
-Step 14/24 : RUN gem install sass
- ---> Using cache
- ---> c135c7009e78
-Step 15/24 : RUN npm install --save-dev babelify
- ---> Using cache
- ---> 87bb40afac5f
-Step 16/24 : RUN useradd webdev && echo 'webdev:webdev' | chpasswd
- ---> Using cache
- ---> 1aaa4dda8897
-Step 17/24 : RUN echo "webdev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
- ---> Using cache
- ---> 7255c8ec4f9c
-Step 18/24 : RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
- ---> Using cache
- ---> 30031d2fe371
-Step 19/24 : ENV NOTVISIBLE "in users profile"
- ---> Using cache
- ---> 768a3b2cf1f4
-Step 20/24 : RUN echo "export TERM=xterm" >> /etc/profile
- ---> Using cache
- ---> dbd51b6422e1
-Step 21/24 : USER webdev
- ---> Running in ae787d5e7aa3
- ---> 052f0af2ce1c
-Removing intermediate container ae787d5e7aa3
-Step 22/24 : VOLUME /home/webdev/
- ---> Running in cadbdb2b15ef
- ---> 11e29bbb360a
-Removing intermediate container cadbdb2b15ef
-Step 23/24 : EXPOSE 22
- ---> Running in 2a4eb6eba7af
- ---> 0eb8b28d5f16
-Removing intermediate container 2a4eb6eba7af
-Step 24/24 : CMD /usr/sbin/sshd -D
- ---> Running in 0f3315652d6a
- ---> 6f3b05daf9eb
-Removing intermediate container 0f3315652d6a
-Successfully built 6f3b05daf9eb
-Sending build context to Docker daemon 183.3 kB
-Step 1/25 : FROM ubuntu:14.04
- ---> b969ab9f929b
-Step 2/25 : MAINTAINER Jason Odoom <jo75@njit.edu>
- ---> Using cache
- ---> 3590d074cf54
-Step 3/25 : RUN apt-get -q update     && apt-get -qy --force-yes dist-upgrade     && apt-get install -qy python-pip python-flask python-dev apt-utils      ruby git curl default-jre default-jdk openssh-server build-essential
- ---> Using cache
- ---> 2d0ee42aade5
-Step 4/25 : RUN mkdir /var/run/sshd
- ---> Using cache
- ---> e4f92c160ee5
-Step 5/25 : RUN echo 'root:curiousfaun' | chpasswd
- ---> Using cache
- ---> e564ac90704f
-Step 6/25 : RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
- ---> Using cache
- ---> 5c249fd21a74
-Step 7/25 : RUN apt-get install -y nodejs
- ---> Using cache
- ---> 22ac829b9a7c
-Step 8/25 : ADD requirements.txt /tmp
- ---> Using cache
- ---> c72dfc969c98
-Step 9/25 : RUN npm install --no-bin-links
- ---> Using cache
- ---> 01e541da4147
-Step 10/25 : RUN npm rebuild node-sass -no-bin-links
- ---> Using cache
- ---> 2cc0b2e5c299
-Step 11/25 : RUN pip install -r /tmp/requirements.txt
- ---> Using cache
- ---> 96707d11ff74
-Step 12/25 : RUN npm install socket.io
- ---> Using cache
- ---> 7795b0e0c1ec
-Step 13/25 : RUN npm install webpack
- ---> Using cache
- ---> 8fdab562e435
-Step 14/25 : RUN gem install sass
- ---> Using cache
- ---> c135c7009e78
-Step 15/25 : RUN npm install --save-dev babelify
- ---> Using cache
- ---> 87bb40afac5f
-Step 16/25 : RUN useradd webdev && echo 'webdev:webdev' | chpasswd
- ---> Using cache
- ---> 1aaa4dda8897
-Step 17/25 : RUN echo "webdev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
- ---> Using cache
- ---> 7255c8ec4f9c
-Step 18/25 : RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
- ---> Using cache
- ---> 30031d2fe371
-Step 19/25 : ENV NOTVISIBLE "in users profile"
- ---> Using cache
- ---> 768a3b2cf1f4
-Step 20/25 : RUN echo "export TERM=xterm" >> /etc/profile
- ---> Using cache
- ---> dbd51b6422e1
-Step 21/25 : RUN ssh-keygen -P "" -t dsa -f /etc/ssh/ssh_host_dsa_key
- ---> Running in 02368c4fee5b
-Generating public/private dsa key pair.
-/etc/ssh/ssh_host_dsa_key already exists.
-Overwrite (y/n)? Sending build context to Docker daemon 185.3 kB
-Step 1/26 : FROM ubuntu:14.04
- ---> b969ab9f929b
-Step 2/26 : MAINTAINER Jason Odoom <jo75@njit.edu>
- ---> Using cache
- ---> 3590d074cf54
-Step 3/26 : RUN apt-get -q update     && apt-get -qy --force-yes dist-upgrade     && apt-get install -qy python-pip python-flask python-dev apt-utils      ruby git curl default-jre default-jdk openssh-server build-essential
- ---> Using cache
- ---> 2d0ee42aade5
-Step 4/26 : RUN mkdir /var/run/sshd
- ---> Using cache
- ---> e4f92c160ee5
-Step 5/26 : RUN echo 'root:curiousfaun' | chpasswd
- ---> Using cache
- ---> e564ac90704f
-Step 6/26 : RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
- ---> Using cache
- ---> 5c249fd21a74
-Step 7/26 : RUN apt-get install -y nodejs
- ---> Using cache
- ---> 22ac829b9a7c
-Step 8/26 : ADD requirements.txt /tmp
- ---> Using cache
- ---> c72dfc969c98
-Step 9/26 : RUN npm install --no-bin-links
- ---> Using cache
- ---> 01e541da4147
-Step 10/26 : RUN npm rebuild node-sass -no-bin-links
- ---> Using cache
- ---> 2cc0b2e5c299
-Step 11/26 : RUN pip install -r /tmp/requirements.txt
- ---> Using cache
- ---> 96707d11ff74
-Step 12/26 : RUN npm install socket.io
- ---> Using cache
- ---> 7795b0e0c1ec
-Step 13/26 : RUN npm install webpack
- ---> Using cache
- ---> 8fdab562e435
-Step 14/26 : RUN gem install sass
- ---> Using cache
- ---> c135c7009e78
-Step 15/26 : RUN npm install --save-dev babelify
- ---> Using cache
- ---> 87bb40afac5f
-Step 16/26 : RUN useradd webdev && echo 'webdev:webdev' | chpasswd
- ---> Using cache
- ---> 1aaa4dda8897
-Step 17/26 : RUN echo "webdev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
- ---> Using cache
- ---> 7255c8ec4f9c
-Step 18/26 : RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
- ---> Using cache
- ---> 30031d2fe371
-Step 19/26 : ENV NOTVISIBLE "in users profile"
- ---> Using cache
- ---> 768a3b2cf1f4
-Step 20/26 : RUN echo "export TERM=xterm" >> /etc/profile
- ---> Using cache
- ---> dbd51b6422e1
-Step 21/26 : RUN rm /etc/ssh/ssh_host*
- ---> Running in c03fbd74f15f
- ---> cd780d5a17ab
-Removing intermediate container c03fbd74f15f
-Step 22/26 : RUN ssh-keygen -P "" -t dsa -f /etc/ssh/ssh_host_dsa_key
- ---> Running in 70e93701b024
-Generating public/private dsa key pair.
-Your identification has been saved in /etc/ssh/ssh_host_dsa_key.
-Your public key has been saved in /etc/ssh/ssh_host_dsa_key.pub.
-The key fingerprint is:
-d1:5b:6c:ac:d0:9c:7a:b8:6a:d8:6b:8f:96:bc:1a:89 root@b6b4cb6241ef
-The key's randomart image is:
-+--[ DSA 1024]----+
-|                 |
-|         + +     |
-|        o = =    |
-|         = =     |
-|        S +      |
-|   . .   o       |
-|  E o+ ..        |
-|    ..Bo         |
-|    .==+.        |
-+-----------------+
- ---> 4631b1864064
-Removing intermediate container 70e93701b024
-Step 23/26 : USER webdev
- ---> Running in 6b58ed3e7f53
- ---> bc04e5958ac3
-Removing intermediate container 6b58ed3e7f53
-Step 24/26 : VOLUME /home/webdev/
- ---> Running in 104461e23196
- ---> 39891c3790c2
-Removing intermediate container 104461e23196
-Step 25/26 : EXPOSE 22
- ---> Running in 4fe5cc6b7040
- ---> 54fbd000ace0
-Removing intermediate container 4fe5cc6b7040
-Step 26/26 : CMD /usr/sbin/sshd -D
- ---> Running in afdb668a744a
- ---> 8d333658478e
-Removing intermediate container afdb668a744a
-Successfully built 8d333658478e
-Sending build context to Docker daemon 189.4 kB
-Step 1/25 : FROM ubuntu:14.04
- ---> b969ab9f929b
-Step 2/25 : MAINTAINER Jason Odoom <jo75@njit.edu>
- ---> Using cache
- ---> 3590d074cf54
-Step 3/25 : RUN apt-get -q update     && apt-get -qy --force-yes dist-upgrade     && apt-get install -qy python-pip python-flask python-dev apt-utils      ruby git curl default-jre default-jdk openssh-server build-essential
- ---> Using cache
- ---> 2d0ee42aade5
-Step 4/25 : RUN mkdir /var/run/sshd
- ---> Using cache
- ---> e4f92c160ee5
-Step 5/25 : RUN echo 'root:curiousfaun' | chpasswd
- ---> Using cache
- ---> e564ac90704f
-Step 6/25 : RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
- ---> Using cache
- ---> 5c249fd21a74
-Step 7/25 : RUN apt-get install -y nodejs
- ---> Using cache
- ---> 22ac829b9a7c
-Step 8/25 : ADD requirements.txt /tmp
- ---> Using cache
- ---> c72dfc969c98
-Step 9/25 : RUN npm install --no-bin-links
- ---> Using cache
- ---> 01e541da4147
-Step 10/25 : RUN npm rebuild node-sass -no-bin-links
- ---> Using cache
- ---> 2cc0b2e5c299
-Step 11/25 : RUN pip install -r /tmp/requirements.txt
- ---> Using cache
- ---> 96707d11ff74
-Step 12/25 : RUN npm install socket.io
- ---> Using cache
- ---> 7795b0e0c1ec
-Step 13/25 : RUN npm install webpack
- ---> Using cache
- ---> 8fdab562e435
-Step 14/25 : RUN gem install sass
- ---> Using cache
- ---> c135c7009e78
-Step 15/25 : RUN npm install --save-dev babelify
- ---> Using cache
- ---> 87bb40afac5f
-Step 16/25 : RUN useradd webdev && echo 'webdev:webdev' | chpasswd
- ---> Using cache
- ---> 1aaa4dda8897
-Step 17/25 : RUN echo "webdev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
- ---> Using cache
- ---> 7255c8ec4f9c
-Step 18/25 : RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
- ---> Running in 214e25e3bccd
- ---> 8e43b69e615e
-Removing intermediate container 214e25e3bccd
-Step 19/25 : RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
- ---> Running in 0cd8d9330572
- ---> fe89d6953137
-Removing intermediate container 0cd8d9330572
-Step 20/25 : ENV NOTVISIBLE "in users profile"
- ---> Running in 5e4f609bd6dd
- ---> 04d9fd9af61e
-Removing intermediate container 5e4f609bd6dd
-Step 21/25 : RUN echo "export TERM=xterm" >> /etc/profile
- ---> Running in 6ea155c09edd
- ---> 46ef3d0ac873
-Removing intermediate container 6ea155c09edd
-Step 22/25 : USER webdev
- ---> Running in 3ee5ee6e8492
- ---> 6acbffbab2a2
-Removing intermediate container 3ee5ee6e8492
-Step 23/25 : VOLUME /home/webdev/
- ---> Running in 8e20c51795a5
- ---> 0d59a5d6f8bb
-Removing intermediate container 8e20c51795a5
-Step 24/25 : EXPOSE 22
- ---> Running in c49613a0d66d
- ---> d4fd2556c1f5
-Removing intermediate container c49613a0d66d
-Step 25/25 : CMD /usr/sbin/sshd -D
- ---> Running in 9fc621591524
- ---> e08d3519a81e
-Removing intermediate container 9fc621591524
-Successfully built e08d3519a81e
+[91mnpm WARN[0m[91m optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules/chokidar/node_modules/fsevents):
+[0m[91mnpm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.0.17: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+[0m[91mnpm WARN enoent ENOENT: no such file or directory, open '/package.json'
+[0m[91mnpm WARN !invalid#1 No description
+npm WARN !invalid#1 No repository field.
+npm[0m[91m WARN[0m[91m !invalid#1 No README data
+[0m[91mnpm WARN !invalid#1 No license field.
+[0m ---> 21d30f8039b5
+Removing intermediate container f246d73b1894
+Step 16/30 : RUN useradd webdev && echo 'webdev:webdev' | chpasswd
+ ---> Running in f7a09a6bf875
+ ---> 5e539f3da6cb
+Removing intermediate container f7a09a6bf875
+Step 17/30 : RUN echo "webdev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+ ---> Running in ad9844d5a72d
+ ---> 12d35bb1fa58
+Removing intermediate container ad9844d5a72d
+Step 18/30 : RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+ ---> Running in 69186c4a4a77
+ ---> f17fe7085798
+Removing intermediate container 69186c4a4a77
+Step 19/30 : RUN apt-get install -qy supervisor
+ ---> Running in 51544829edba
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  python-meld3
+The following NEW packages will be installed:
+  python-meld3 supervisor
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 353 kB of archives.
+After this operation, 1692 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu/ trusty/universe python-meld3 amd64 0.6.10-1 [39.0 kB]
+Get:2 http://archive.ubuntu.com/ubuntu/ trusty/universe supervisor all 3.0b2-1 [314 kB]
+[91mdebconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+[0m[91mdebconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+[0m[91mdpkg-preconfigure: unable to re-open stdin: 
+[0mFetched 353 kB in 6s (52.8 kB/s)
+Selecting previously unselected package python-meld3.
+(Reading database ... 36107 files and directories currently installed.)
+Preparing to unpack .../python-meld3_0.6.10-1_amd64.deb ...
+Unpacking python-meld3 (0.6.10-1) ...
+Selecting previously unselected package supervisor.
+Preparing to unpack .../supervisor_3.0b2-1_all.deb ...
+Unpacking supervisor (3.0b2-1) ...
+Processing triggers for ureadahead (0.100.0-16) ...
+Setting up python-meld3 (0.6.10-1) ...
+Setting up supervisor (3.0b2-1) ...
+[91minvoke-rc.d: policy-rc.d denied execution of start.
+[0mProcessing triggers for ureadahead (0.100.0-16) ...
+ ---> a82a1ae237a6
+Removing intermediate container 51544829edba
+Step 20/30 : COPY supervisord.conf /etc/
+ ---> ca43de0fd225
+Removing intermediate container cfe5c12b2fd7
+Step 21/30 : ENV HOME /home/webdev
+ ---> Running in 47a9031b528c
+ ---> 4a1e812940db
+Removing intermediate container 47a9031b528c
+Step 22/30 : ENV TERM xterm
+ ---> Running in 37f86f5d5611
+ ---> 8e7f3bd827e4
+Removing intermediate container 37f86f5d5611
+Step 23/30 : COPY bash/profile /home/webdev/.profile
+ ---> 50669071b541
+Removing intermediate container 40220fdb6189
+Step 24/30 : COPY bash/bashrc /home/webdev/.bashrc
+ ---> 818c7bfe5eeb
+Removing intermediate container e974d60cbc8a
+Step 25/30 : RUN chown -R webdev:webdev /home/webdev
+ ---> Running in 4c7b29502f11
+ ---> 5f0176ea59f0
+Removing intermediate container 4c7b29502f11
+Step 26/30 : RUN rm /bin/sh && ln -sf /bin/bash /bin/sh
+ ---> Running in 34f1e1c1140f
+ ---> 28daa4a3a81c
+Removing intermediate container 34f1e1c1140f
+Step 27/30 : RUN source ~/.profile
+ ---> Running in 0eed987efd88
+ ---> ace29c421bb9
+Removing intermediate container 0eed987efd88
+Step 28/30 : VOLUME /home/webdev/
+ ---> Running in f2e725fae925
+ ---> 6770f25d9e03
+Removing intermediate container f2e725fae925
+Step 29/30 : EXPOSE 22
+ ---> Running in 7ad457c13b6f
+ ---> cbfe0471e8ad
+Removing intermediate container 7ad457c13b6f
+Step 30/30 : CMD /usr/bin/supervisord -n -c /etc/supervisord.conf
+ ---> Running in fd1a115da9cd
+ ---> 1358da4cf641
+Removing intermediate container fd1a115da9cd
+Successfully built 1358da4cf641
