@@ -8,7 +8,7 @@ RUN apt-get -q update \
     && apt-get -qy --force-yes dist-upgrade \
     && apt-get install -qy python-pip python-flask python-dev apt-utils  \ 
     ruby git curl default-jre default-jdk openssh-server build-essential \
-    vim virtualenv lync mc 
+    vim python-virtualenv lynx mc 
 
 
 RUN mkdir /var/run/sshd
