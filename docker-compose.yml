@@ -1,14 +1,14 @@
 sigweb:
    volumes:
-    - $PWD/sigweb/home/webdev:/home/webdev/
+    - $PWD/sigweb/webdev/home:/home/webdev/
    expose:
     - "22"
    image: sigweb-docker
    container_name: "sigweb-base"
 apache:
    volumes:
-    - $PWD/sigweb/apache/logs:/var/log/apache2
-    - $PWD/sigweb/apache/html:/var/www/html
+    - $PWD/sigweb/webdev/httpd/logs:/var/log/apache2
+    - $PWD/sigweb/webdev/httpd/html:/var/www/html
    expose:
     - "80"
    image: sigweb-apache
