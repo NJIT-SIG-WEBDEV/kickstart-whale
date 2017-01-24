@@ -7,10 +7,12 @@ MAINTAINER Jason Odoom <jo75@njit.edu>
 RUN apt-get -q update \
     && apt-get -qy --force-yes dist-upgrade \
     && apt-get install -qy python-pip python-flask python-dev apt-utils  \ 
-    ruby git curl default-jre default-jdk openssh-server build-essential
+    ruby git curl default-jre default-jdk openssh-server build-essential \
+    vim virtualenv lync mc 
 
 
 RUN mkdir /var/run/sshd
+
 RUN echo 'root:curiousfaun' | chpasswd
 
 #Installing nodeJS
@@ -34,26 +36,26 @@ RUN npm install --save-dev babelify
 RUN useradd webdev && echo 'webdev:webdev' | chpasswd
 RUN echo "webdev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-
 RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 
-# SSH login fix. Otherwise user is kicked off after login
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+# Configure supervisor 
+RUN apt-get install -qy supervisor
 
-ENV NOTVISIBLE "in users profile"
+COPY supervisord.conf /etc/
 
-RUN echo "export TERM=xterm" >> /etc/profile
+ENV HOME /home/webdev
+ENV TERM xterm
 
-## Suppress error message 'Could not load host key: ...'
-RUN rm /etc/ssh/ssh_host*
-RUN /usr/bin/ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -C '' -N ''
-#RUN ssh-keygen -P "" -t dsa -f /etc/ssh/ssh_host_dsa_key
+COPY bash/profile /home/webdev/.profile
+COPY bash/bashrc /home/webdev/.bashrc
 
+RUN chown -R webdev:webdev /home/webdev
 
-USER webdev
+#Let's get a bash shell on login
+RUN rm /bin/sh && ln -sf /bin/bash /bin/sh
+RUN source ~/.profile 
 
 VOLUME ["/home/webdev/"]
 
 EXPOSE 22
-
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
