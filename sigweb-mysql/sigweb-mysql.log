@@ -4,16 +4,16 @@ Step 1/5 : FROM mysql:latest
 Step 2/5 : MAINTAINER Jason Odoom <jo75@njit.edu>
  ---> Using cache
  ---> 1535828b0de6
-Step 3/5 : ENV MYSQL_ROOT_PASSWORD my-es-q-el
- ---> Running in b8cb17f0a501
- ---> 28d2773dcccf
-Removing intermediate container b8cb17f0a501
+Step 3/5 : ENV MYSQL_ROOT_PASSWORD M/$q1
+ ---> Running in e06cdab5ffa4
+ ---> 3c4abb0d295a
+Removing intermediate container e06cdab5ffa4
 Step 4/5 : EXPOSE 3306
- ---> Running in 8e1a875eba52
- ---> 3148635551d1
-Removing intermediate container 8e1a875eba52
+ ---> Running in 77081d17c355
+ ---> d0773c14ba80
+Removing intermediate container 77081d17c355
 Step 5/5 : CMD mysqld
- ---> Running in 78d5f96f7fb5
- ---> f79042356584
-Removing intermediate container 78d5f96f7fb5
-Successfully built f79042356584
+ ---> Running in cd0879103f0b
+ ---> 190c169bb37c
+Removing intermediate container cd0879103f0b
+Successfully built 190c169bb37c
