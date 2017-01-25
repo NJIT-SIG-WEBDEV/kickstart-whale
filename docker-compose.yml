@@ -9,9 +9,9 @@ sigweb:
 lap:
    #build: ./sigweb-lap
    volumes:
-    - $PWD/sigweb/webdev/httpd/logs:/var/log/apache2
-    - $PWD/sigweb/webdev/httpd/html:/var/www/html
-    - $PWD/sigweb/webdev/httpd/php/:/usr/local/etc/php
+    - $PWD/sigweb/httpd/logs:/var/log/apache2
+    - $PWD/sigweb/httpd/html:/var/www/html
+    - $PWD/sigweb/php/:/usr/local/etc/php
    expose:
     - "80"
    image: jasonodoom/sigweb-lap
