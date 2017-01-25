@@ -1,0 +1,23 @@
+Sending build context to Docker daemon 4.096 kB
+Step 1/6 : FROM php:7.0-apache
+ ---> bbc6e9ea0a3f
+Step 2/6 : MAINTAINER Jason Odoom <jo75@njit.edu>
+ ---> Running in de41d928bd3d
+ ---> adb263eab759
+Removing intermediate container de41d928bd3d
+Step 3/6 : VOLUME /var/www/html /var/log/apache2 /usr/local/etc/php/
+ ---> Running in 9879c9d3ae27
+ ---> 227dd3031c49
+Removing intermediate container 9879c9d3ae27
+Step 4/6 : EXPOSE 80 443
+ ---> Running in 8f8360de3f5a
+ ---> 3aa00cfa82ff
+Removing intermediate container 8f8360de3f5a
+Step 5/6 : WORKDIR /var/www/html
+ ---> d85937a50150
+Removing intermediate container 6658f46f82aa
+Step 6/6 : ENTRYPOINT apache2ctl -D FOREGROUND
+ ---> Running in f1cdd0e708a9
+ ---> 0dd21a3f6170
+Removing intermediate container f1cdd0e708a9
+Successfully built 0dd21a3f6170
