@@ -25,5 +25,5 @@ mysql:
    image: jasonodoom/sigweb-mysql
    container_name: "sigweb-db"
    environment:
-    - MYSQL_ROOT_PASSWORD M/$q1
+    - MYSQL_ROOT_PASSWORD=M/$q1
     #- MYSQL_DATABASE=sigweb
