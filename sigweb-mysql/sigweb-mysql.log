@@ -1,20 +1,19 @@
 Sending build context to Docker daemon  2.56 kB
-Step 1/5 : FROM mysql
+Step 1/5 : FROM mysql:latest
  ---> f3694c67abdb
 Step 2/5 : MAINTAINER Jason Odoom <jo75@njit.edu>
- ---> Running in 2dc49ef753a3
+ ---> Using cache
  ---> 1535828b0de6
-Removing intermediate container 2dc49ef753a3
-Step 3/5 : ENV MYSQL_ROOT_PASSWORD my$qL
- ---> Running in 083d505a813e
- ---> 370c98dde610
-Removing intermediate container 083d505a813e
+Step 3/5 : ENV MYSQL_ROOT_PASSWORD my-es-q-el
+ ---> Running in b8cb17f0a501
+ ---> 28d2773dcccf
+Removing intermediate container b8cb17f0a501
 Step 4/5 : EXPOSE 3306
- ---> Running in d81db0cf53f3
- ---> d1ad51171777
-Removing intermediate container d81db0cf53f3
+ ---> Running in 8e1a875eba52
+ ---> 3148635551d1
+Removing intermediate container 8e1a875eba52
 Step 5/5 : CMD mysqld
- ---> Running in e144d0afd7ca
- ---> 119cec66e966
-Removing intermediate container e144d0afd7ca
-Successfully built 119cec66e966
+ ---> Running in 78d5f96f7fb5
+ ---> f79042356584
+Removing intermediate container 78d5f96f7fb5
+Successfully built f79042356584
