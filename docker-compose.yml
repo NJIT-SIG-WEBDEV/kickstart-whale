@@ -6,14 +6,15 @@ sigweb:
     - "22"
    image: jasonodoom/sigweb-docker
    container_name: "sigweb-base"
-apache:
-   #build: ./sigweb-apache
+lap:
+   #build: ./sigweb-lap
    volumes:
     - $PWD/sigweb/webdev/httpd/logs:/var/log/apache2
     - $PWD/sigweb/webdev/httpd/html:/var/www/html
+    - $PWD/sigweb/webdev/httpd/php/:/usr/local/etc/php
    expose:
     - "80"
-   image: jasonodoom/sigweb-apache
+   image: jasonodoom/sigweb-lap
    container_name: "sigweb-httpd"
 mysql:
    #build: ./sigweb-mysql
