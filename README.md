@@ -31,7 +31,7 @@ Then run with your choice of docker options:
 docker run -d --name sigweb-base --restart always -v $PWD/sigweb:/home/webdev jasonodoom/sigweb-docker 
 ```
 
-If you would like to use Docker Compose you should follow the [installation instructions](https://docs.docker.com/compose/install/) You then have the option of building via Compose or pulling from the Docker Hub.
+If you would like to use Docker Compose you should follow the [installation instructions](https://docs.docker.com/compose/install/) You then have the option of building via Compose or pulling from Docker Hub.
 
 **NOTE:** By default, *docker-compose.yml* is configured to pull from Docker Hub. If you would like to build instead uncomment the "#build:" lines and comment the "image:" lines.
 
@@ -43,7 +43,7 @@ To start the project with Compose run:
 docker-compose up
 ```
 
-If you don't want stdout you can append **-d** to daemonize the process and silence output:
+If you don't want stdout you can append **-d** to daemonize the process, silencing output:
 
 ```bash
 docker-compose up -d
