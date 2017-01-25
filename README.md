@@ -78,12 +78,12 @@ You can SSH into jasonodoom/sigweb-docker by running:
 
 ```bash
 ssh webdev@IP_ADDRESS_OF_CONTAINER
-   ```
+```
  where *webdev* is the default user. 
 
 - Where can I get more information reagrding the MySQL Database?
 
-The jasonodoom/sigweb-db image is based on the official Docker mysql image. Visit the [repository page](https://hub.docker.com/_/mysql/) for more information.
+The jasonodoom/sigweb-db image uses the official Docker mysql image. Visit the [repository page](https://hub.docker.com/_/mysql/) for more information.
 
 # Known Issues
 
