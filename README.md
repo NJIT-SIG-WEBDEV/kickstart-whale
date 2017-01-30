@@ -1,9 +1,9 @@
 # kickstart-whale
-A Docker container to help sig-web members kickstart development. 
+Docker containers to help sig-web members kickstart development. 
 
 - [Introduction](#introduction)
 - [FAQ](#faq)
-- [Known Issues?](#known-issues)
+  - [Known Issues?](#known-issues)
 
 # Introduction
 
@@ -81,7 +81,7 @@ ssh webdev@IP_ADDRESS_OF_CONTAINER
 ```
  where *webdev* is the default user. 
 
-- Where can I get more information reagrding the MySQL Database?
+- Where can I get more information regarding the MySQL Database?
 
 The jasonodoom/sigweb-db image uses the official Docker mysql image. Visit the [repository page](https://hub.docker.com/_/mysql/) for more information.
 
