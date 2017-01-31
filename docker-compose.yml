@@ -6,6 +6,7 @@ sigweb:
     - "22"
    image: jasonodoom/sigweb-docker
    container_name: "sigweb-base"
+   restart: always
 lap:
    #build: ./sigweb-lap
    volumes:
@@ -16,6 +17,7 @@ lap:
     - "80"
    image: jasonodoom/sigweb-lap
    container_name: "sigweb-httpd"
+   restart: always
 mysql:
    #build: ./sigweb-mysql
    volumes:
@@ -24,6 +26,19 @@ mysql:
     - "3306"
    image: jasonodoom/sigweb-mysql
    container_name: "sigweb-db"
+   restart: always
    environment:
     - MYSQL_ROOT_PASSWORD=M/$q1
     #- MYSQL_DATABASE=sigweb
+pma:
+  #build: ./sigweb-pma
+  image: jasonodoom/sigweb-pma
+  container_name: "sigweb-pma"
+  restart: always
+  environment:
+   - PMA_ARBITRARY=1
+   - PMA_USER=webdev
+   - PMA_PASSWORD=mIsT3r_tumnus
+ volumes:
+  - /sessions
+

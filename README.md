@@ -106,5 +106,4 @@ mysql -u root -h IP_ADDRESS -pM/
 for example.
 
 
-A PHPMyAdmin container is on the To Do List among other things. Pull requests are also encouraged. 
 
