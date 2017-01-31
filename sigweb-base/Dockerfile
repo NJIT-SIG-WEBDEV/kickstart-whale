@@ -1,11 +1,12 @@
-FROM ubuntu:14.04
+FROM php:7.0-apache
+#FROM ubuntu:14.04
 MAINTAINER Jason Odoom <jo75@njit.edu>
 
 RUN apt-get -q update \
     && apt-get -qy --force-yes dist-upgrade \
     && apt-get install -qy python-pip python-flask python-dev apt-utils  \ 
     ruby git curl default-jre default-jdk openssh-server build-essential \
-    vim python-virtualenv lynx mc 
+    vim python-virtualenv lynx mc mysql-client
 
 
 RUN mkdir /var/run/sshd
@@ -52,7 +53,8 @@ RUN chown -R webdev:webdev /home/webdev
 RUN rm /bin/sh && ln -sf /bin/bash /bin/sh
 RUN source ~/.profile 
 
-VOLUME ["/home/webdev/"]
+VOLUME ["/home/webdev/","/var/www/html", "/var/log/apache2", "/usr/local/etc/php/"]
 
-EXPOSE 22
+EXPOSE 22 80 443
+
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]

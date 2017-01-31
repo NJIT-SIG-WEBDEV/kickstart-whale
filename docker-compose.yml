@@ -2,21 +2,15 @@ sigweb:
    #build: ./sigweb-base
    volumes:
     - $PWD/sigweb/webdev/home:/home/webdev/
-   expose:
-    - "22"
-   image: jasonodoom/sigweb-docker
-   container_name: "sigweb-base"
-   restart: always
-lap:
-   #build: ./sigweb-lap
-   volumes:
     - $PWD/sigweb/httpd/logs:/var/log/apache2
     - $PWD/sigweb/httpd/html:/var/www/html
     - $PWD/sigweb/php/:/usr/local/etc/php
    expose:
+    - "22"
     - "80"
-   image: jasonodoom/sigweb-lap
-   container_name: "sigweb-httpd"
+    - "443"
+   image: jasonodoom/sigweb-docker
+   container_name: "sigweb-base"
    restart: always
 mysql:
    #build: ./sigweb-mysql

@@ -7,9 +7,8 @@ Docker containers to help sig-web members kickstart development.
 
 # Introduction
 
-This project will create three docker containers. The first being a base that includes packages such as npm and flask. SSH is also configured in the base. The second container is running Apache + PHP while the third is running MySQL. 
+This project will create three docker containers. The first being a base that includes packages such as npm, flask as well as Apache and PHP. SSH is also configured in the base. The second container is running MySQL. And the third is PHPMyAdmin which can connect to the MySQL container for a GUI if you do not want to use mysql.
 
-All can be used together or separately. In fact, if you would rather Apache be in the base container you can clone this repo, add the package to the Dockerfile, configure supervisor to start Apache and then rebuild the image. Use this in whatever way that makes sense for you. If for some reason you would want to install Firefox, you can do that too. Considering the base image includes openssh-server you can X forward. 
 
 Before you can begin you must [install Docker ](https://docs.docker.com/engine/installation/). If you already have Docker ensure it is up to date. 
 
