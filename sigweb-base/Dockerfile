@@ -1,6 +1,3 @@
-# Docker image containing packages for SIGWeb
-#
-# VERSION   0.0.1
 FROM ubuntu:14.04
 MAINTAINER Jason Odoom <jo75@njit.edu>
 
@@ -15,12 +12,12 @@ RUN mkdir /var/run/sshd
 
 RUN echo 'root:curiousfaun' | chpasswd
 
-#Installing nodeJS
+# installing nodeJS
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
 RUN apt-get install -y nodejs
 
-#Copy the file of dependencies to tmp
-ADD requirements.txt /tmp
+# copying the file of dependencies to /tmp
+COPY requirements.txt /tmp
 
 RUN npm install --no-bin-links
 RUN npm rebuild node-sass -no-bin-links
@@ -32,16 +29,16 @@ RUN npm install webpack
 RUN gem install sass
 RUN npm install --save-dev babelify
 
-#Creating user webdev and setting user passwd
+# creating user webdev and setting user passwd
 RUN useradd webdev && echo 'webdev:webdev' | chpasswd
 RUN echo "webdev ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 
-# Configure supervisor 
+# configuring supervisor 
 RUN apt-get install -qy supervisor
 
-COPY supervisord.conf /etc/
+COPY supervisord.conf /etc
 
 ENV HOME /home/webdev
 ENV TERM xterm
@@ -51,7 +48,7 @@ COPY bash/bashrc /home/webdev/.bashrc
 
 RUN chown -R webdev:webdev /home/webdev
 
-#Let's get a bash shell on login
+# let's get a bash shell on login
 RUN rm /bin/sh && ln -sf /bin/bash /bin/sh
 RUN source ~/.profile 
 

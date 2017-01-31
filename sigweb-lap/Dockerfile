@@ -1,6 +1,3 @@
-# Docker image containing packages for SIGWeb
-#
-# VERSION   0.0.1
 FROM php:7.0-apache
 MAINTAINER Jason Odoom <jo75@njit.edu>
 
